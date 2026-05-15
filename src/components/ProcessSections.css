@@ -1,0 +1,188 @@
+.process-sections-container {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+/* Base Card Container */
+.process-card {
+  display: flex;
+  width: 100%;
+  height: 100vh; /* Fill the full viewport height for the sticky stacking effect */
+  font-family: 'Inter', sans-serif;
+  position: sticky;
+  top: 0; /* Stays pinned at top as next card slides UP directly ON TOP of it */
+  background-color: #ffffff;
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.03); /* Smooth card overlap depth effect */
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Alternating Layout Rules */
+.process-card.layout-normal {
+  flex-direction: row;
+}
+
+.process-card.layout-reverse {
+  flex-direction: row-reverse;
+}
+
+/* Left (Text) Column */
+.process-left {
+  flex: 1.2;
+  background-color: #ebf2fa; /* Light blue tint */
+  padding: 120px 80px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+
+.process-content-box {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.process-subtitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4b5563;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.process-title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  color: #111827;
+  line-height: 1.15;
+}
+
+.process-desc {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #4b5563;
+  margin-bottom: 40px;
+}
+
+.process-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 50px 0;
+}
+
+.process-bullets li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #111827;
+  margin-bottom: 16px;
+  padding-left: 25px;
+  position: relative;
+  font-weight: 500;
+}
+
+.process-bullets li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.process-cta-btn {
+  background-color: transparent;
+  color: #111827;
+  border: 1px solid #111827;
+  padding: 16px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  border-radius: 4px;
+}
+
+.process-cta-btn:hover {
+  background-color: #111827;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-arrow-icon {
+  font-size: 13px;
+}
+
+/* Right (Image) Column */
+.process-right {
+  flex: 0.8;
+  overflow: hidden;
+  background-color: #f8fafc;
+}
+
+.process-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.process-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.process-right img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive constraints */
+@media (max-width: 1200px) {
+  .process-left {
+    padding: 100px 60px;
+  }
+  .process-title {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .process-card {
+    position: relative;
+    top: 0;
+    height: auto;
+    flex-direction: column-reverse !important; /* Force vertical stacking */
+    box-shadow: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .process-left, .process-right {
+    flex: none;
+    width: 100%;
+  }
+  
+  .process-left {
+    padding: 80px 40px;
+  }
+  
+  .process-right {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-title {
+    font-size: 34px;
+  }
+  
+  .process-right {
+    height: 350px;
+  }
+}

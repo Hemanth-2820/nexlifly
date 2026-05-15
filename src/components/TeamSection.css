@@ -1,0 +1,210 @@
+.team-section-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 0 140px 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.team-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.team-main-title {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: #111827;
+}
+
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 140px; /* Large spatial gap between leaders for premium focus */
+}
+
+.team-row {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Corner Abstract Grid Layout Styling */
+.team-image-col {
+  display: flex;
+  justify-content: center;
+}
+
+.image-box-container {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.team-photo {
+  width: 100%;
+  aspect-ratio: 4 / 4.2; /* Captures exact headshot scale from screenshot */
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 3;
+  filter: grayscale(20%);
+  transition: filter 0.4s ease;
+}
+
+.team-photo:hover {
+  filter: grayscale(0%);
+}
+
+/* Replicating exact intersecting corner accent */
+.abstract-corner-frame {
+  position: absolute;
+  left: -35px;
+  bottom: -35px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.corner-line {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-radius: 2px;
+}
+
+.line-h-1 { left: 0; bottom: 0; width: 160px; height: 16px; }
+.line-h-2 { left: 18px; bottom: 18px; width: 140px; height: 16px; }
+.line-h-3 { left: 36px; bottom: 36px; width: 120px; height: 16px; background: linear-gradient(90deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.02) 100%); }
+
+.line-v-1 { left: 0; bottom: 0; width: 16px; height: 160px; background: linear-gradient(0deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%); }
+.line-v-2 { left: 18px; bottom: 18px; width: 16px; height: 140px; background: linear-gradient(0deg, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0.02) 100%); }
+.line-v-3 { left: 36px; bottom: 36px; width: 16px; height: 120px; background: linear-gradient(0deg, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.02) 100%); }
+
+/* Right Text Content Area */
+.team-info-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 20px;
+}
+
+.quote-icon-box {
+  margin-bottom: 0;
+  line-height: 0.8;
+}
+
+.quote-visual-symbol {
+  font-family: 'Georgia', serif;
+  font-size: 120px;
+  color: #111827;
+  font-weight: 900;
+  opacity: 0.9;
+  user-select: none;
+  display: inline-block;
+  transform: translateY(20px);
+}
+
+.team-desk-label {
+  font-size: 36px;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: -1.2px;
+  margin: 0 0 24px 0;
+}
+
+.team-bio-text {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #374151;
+  font-weight: 400;
+  margin: 0 0 35px 0;
+  max-width: 650px;
+}
+
+.team-footer-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+}
+
+.member-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0;
+}
+
+.member-designation {
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.member-linkedin-btn {
+  width: 38px;
+  height: 38px;
+  background-color: #0077b5; /* LinkedIn Blue */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.member-linkedin-btn:hover {
+  background-color: #005582;
+  transform: translateY(-2px);
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .team-row {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+  .team-main-title {
+    font-size: 40px;
+  }
+  .team-image-col {
+    justify-content: flex-start;
+    padding-left: 35px; /* Makes room for the overflow corner frame */
+  }
+  .team-photo {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-container {
+    padding: 0 25px;
+  }
+  .team-main-title {
+    font-size: 32px;
+  }
+  .team-desk-label {
+    font-size: 28px;
+  }
+  .team-bio-text {
+    font-size: 16px;
+  }
+  .abstract-corner-frame {
+    transform: scale(0.85);
+  }
+}

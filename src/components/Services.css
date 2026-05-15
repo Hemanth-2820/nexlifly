@@ -1,0 +1,219 @@
+.services-wrapper {
+  display: flex;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  position: relative;
+}
+
+/* Left Column Styling */
+.services-left {
+  flex: 1.6;
+  background-color: #ebf2fa; /* Light blueish gray */
+  padding: 100px 80px;
+  color: #000000;
+}
+
+.services-section-heading {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 50px;
+  color: #111827;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 45px 35px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent; /* Pre-drawn border for smooth scale transition */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.service-card:hover {
+  background-color: #eff6ff; /* Smooth, light blue background tint */
+  border-color: #3b82f6; /* Premium blue border */
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(59, 130, 246, 0.12);
+}
+
+.service-icon-box {
+  font-size: 36px;
+  color: #111827;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-icon-box {
+  color: #3b82f6; /* Transition icon to blue on hover */
+}
+
+.service-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 18px;
+  letter-spacing: -0.2px;
+}
+
+.service-card-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 35px;
+  flex-grow: 1;
+}
+
+.service-explore-link {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.service-explore-link:hover {
+  gap: 12px;
+}
+
+.link-arrow {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Right Column Styling */
+.services-right {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 100px 80px;
+  color: #000000;
+  border-left: 1px solid #f3f4f6;
+}
+
+.services-sticky-content {
+  position: sticky;
+  top: 100px;
+}
+
+.services-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.services-subtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background-color: #111827;
+}
+
+.services-main-heading {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+}
+
+.services-right-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #4b5563;
+  margin-bottom: 25px;
+}
+
+.consultation-image-container {
+  width: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.consultation-image-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-consultation {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 18px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.btn-consultation:hover {
+  background-color: #1f2937;
+  transform: translateY(-2px);
+}
+
+.btn-consultation-arrow {
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .services-wrapper {
+    flex-direction: column-reverse;
+  }
+  .services-left, .services-right {
+    flex: none;
+    width: 100%;
+    padding: 80px 40px;
+  }
+  .services-sticky-content {
+    position: static;
+  }
+  .services-right {
+    border-left: none;
+    border-bottom: 1px solid #f3f4f6;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .services-main-heading {
+    font-size: 32px;
+  }
+  .services-section-heading {
+    font-size: 28px;
+  }
+}

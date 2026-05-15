@@ -1,0 +1,475 @@
+.about-section {
+  width: 100%;
+  background-color: #ebf3f9; /* The soft signature bluish light background from screenshot */
+  padding: 160px 80px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+.about-vector-bg {
+  position: absolute;
+  left: -50px;
+  top: 250px; /* Pushed slightly higher to float neatly near the title */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.about-content-wrapper {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin-left: 140px; /* Strategic left-offset to wrap neatly next to the absolute vector icon */
+  width: calc(100% - 140px);
+}
+
+.about-subtitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #111827;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 35px;
+}
+
+.about-subtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background-color: #111827;
+}
+
+.about-main-title {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -2.5px;
+  color: #111827;
+  margin: 0;
+}
+
+/* Taglines Cards Layout (Innovative Dual Grid) */
+.innovative-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.innovative-card {
+  position: relative;
+  border-radius: 36px;
+  padding: 60px 50px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 540px;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.5); /* Standardized soft, uniform glass layout */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.01);
+}
+
+.innovative-card:hover {
+  transform: translateY(-12px);
+  background: #ffffff;
+  border-color: rgba(37, 99, 235, 0.25);
+  box-shadow: 
+    0 25px 60px -12px rgba(15, 23, 42, 0.06),
+    0 0 30px rgba(37, 99, 235, 0.03);
+}
+
+/* Keyframe Floating Ambient Orbs - Now adjusted to soft tints for light layout */
+.glow-orb-indigo {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, rgba(37, 99, 235, 0) 70%);
+  top: -50px;
+  right: -50px;
+  pointer-events: none;
+  z-index: 1;
+  animation: orb-float 10s infinite alternate ease-in-out;
+}
+
+.glow-orb-cyan {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, rgba(6, 182, 212, 0) 70%);
+  bottom: -50px;
+  left: -50px;
+  pointer-events: none;
+  z-index: 1;
+  animation: orb-float 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes orb-float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 20px) scale(1.15); }
+}
+
+/* Top Meta Information */
+.card-ambient-number {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  font-size: 180px;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(15, 23, 42, 0.02);
+  letter-spacing: -10px;
+  pointer-events: none;
+  font-family: 'Inter', sans-serif;
+  z-index: 1;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-ambient-number.text-light {
+  color: rgba(15, 23, 42, 0.02);
+}
+
+.innovative-card:hover .card-ambient-number {
+  transform: translateY(15px);
+  color: rgba(37, 99, 235, 0.04);
+}
+
+.card-top-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+}
+
+.card-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #475569;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  letter-spacing: 1px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #06b6d4;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #06b6d4;
+  animation: status-pulse 2s infinite;
+}
+
+@keyframes status-pulse {
+  0% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0.4; transform: scale(0.9); }
+}
+
+/* Kinetic Text Stack (Card 1) */
+.kinetic-text-display {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 45px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.kinetic-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.kinetic-row.indent-1 { margin-left: 40px; }
+.kinetic-row.indent-2 { margin-left: 80px; }
+
+.k-word {
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: rgba(15, 23, 42, 0.25); /* Soft dark color on standard background */
+  line-height: 0.95;
+  transition: all 0.4s ease;
+}
+
+.innovative-card:hover .k-word {
+  color: rgba(15, 23, 42, 0.7);
+}
+
+/* Kept the hover gradient color changes for the link texts */
+.innovative-card:hover .accent-gradient {
+  background: linear-gradient(to right, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 1;
+}
+
+.k-connector {
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(15, 23, 42, 0.06), rgba(15, 23, 42, 0));
+  position: relative;
+}
+
+.build-connector {
+  background: linear-gradient(to right, rgba(6, 182, 212, 0.15), rgba(15, 23, 42, 0));
+}
+
+.fly-icon {
+  width: 42px;
+  height: 42px;
+  color: #06b6d4;
+  opacity: 0.5;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.innovative-card:hover .fly-icon {
+  opacity: 1;
+  transform: translate(12px, -12px) scale(1.1);
+}
+
+/* Lens Intersecting Visual (Card 2) */
+.lens-showcase-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px 0;
+  height: 160px;
+  position: relative;
+  z-index: 3;
+}
+
+.minds-visual-core {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 120px;
+}
+
+.core-ring {
+  position: absolute;
+  border: 1px dashed rgba(37, 99, 235, 0.15);
+  border-radius: 50%;
+  transition: all 0.8s ease;
+}
+
+.ring-outer {
+  width: 190px;
+  height: 190px;
+  animation: ring-spin 28s linear infinite;
+}
+
+.ring-inner {
+  width: 150px;
+  height: 150px;
+  animation: ring-spin-reverse 22s linear infinite;
+  border-style: solid;
+  border-color: rgba(37, 99, 235, 0.06);
+}
+
+@keyframes ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes ring-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.overlap-lenses {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 140px;
+  height: 80px;
+}
+
+.lens {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(37, 99, 235, 0.18);
+  backdrop-filter: blur(5px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lens-a {
+  left: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.04), rgba(255,255,255,0.15));
+}
+
+.lens-b {
+  right: 0;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.04), rgba(255,255,255,0.15));
+}
+
+.innovative-card:hover .lens-a { transform: translateX(-12px); border-color: rgba(37, 99, 235, 0.4); }
+.innovative-card:hover .lens-b { transform: translateX(12px); border-color: rgba(6, 182, 212, 0.4); }
+
+.lens-focus {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+  z-index: 5;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.lens-focus svg {
+  width: 18px;
+  height: 18px;
+  animation: pulse-spin 6s linear infinite;
+}
+
+.innovative-card:hover .lens-focus {
+  background: #2563eb;
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+}
+
+@keyframes pulse-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Concept Typography Footer */
+.concept-heading {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1.05;
+  color: #0f172a;
+  margin: 0 0 18px 0;
+  position: relative;
+  z-index: 4;
+}
+
+.concept-subheading {
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.card-footer-content {
+  position: relative;
+  z-index: 4;
+}
+
+.card-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+  max-width: 420px;
+  font-weight: 400;
+}
+
+.card-description.dark-text {
+  color: #475569;
+}
+
+.interactive-circuit {
+  margin-top: 24px;
+  opacity: 0.6;
+}
+
+/* Responsive constraints */
+@media (max-width: 1200px) {
+  .about-main-title {
+    font-size: 48px;
+  }
+  .k-word {
+    font-size: 50px;
+  }
+  .concept-heading {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-section {
+    padding: 120px 40px;
+  }
+  .about-content-wrapper {
+    margin-left: 40px;
+    width: calc(100% - 40px);
+  }
+  .about-main-title {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+  .innovative-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+  .about-vector-bg {
+    opacity: 0.7;
+    top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-main-title {
+    font-size: 34px;
+  }
+  .about-content-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+  .innovative-card {
+    padding: 50px 30px;
+    min-height: 480px;
+  }
+  .k-word {
+    font-size: 44px;
+  }
+  .kinetic-row.indent-1 { margin-left: 20px; }
+  .kinetic-row.indent-2 { margin-left: 40px; }
+  .concept-heading {
+    font-size: 34px;
+  }
+  .about-vector-bg {
+    left: -150px;
+  }
+}

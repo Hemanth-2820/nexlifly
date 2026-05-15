@@ -1,0 +1,195 @@
+/* =====================================================
+   NEXUS FRAMEWORK — Compact Hover-Expand Card Slider
+   ===================================================== */
+
+.nexus-section {
+  width: 100%;
+  background: #eef4fb;
+  padding: 90px 0 80px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+}
+
+.nexus-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.nexus-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 48px;
+}
+
+.nexus-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3b6fe8;
+  background: rgba(59, 111, 232, 0.1);
+  border-radius: 20px;
+  padding: 5px 16px;
+  margin-bottom: 16px;
+}
+
+.nexus-title {
+  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: #0e1f3d;
+  line-height: 1.25;
+  margin: 0 0 16px;
+}
+
+.nexus-subtitle {
+  font-size: 0.975rem;
+  color: #5a6a80;
+  line-height: 1.8;
+}
+
+.nexus-subtitle strong {
+  color: #3b6fe8;
+}
+
+/* ── Slider Row ──────────────────────────────────── */
+.nexus-slider {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  /* Compact height matching screenshot */
+  height: 220px;
+}
+
+/* ── Base card ───────────────────────────────────── */
+.nexus-card {
+  flex: 0 0 125px; /* Increased width from 110px */
+  display: flex;
+  flex-direction: row;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #fff; /* Ensures no gap background shows during expansion */
+  cursor: pointer;
+  transition: flex 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s ease;
+  height: 100%;
+  
+  /* Hardware acceleration fix for clipping bugs in Chrome/Safari during transitions */
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black); 
+}
+
+/* ── Active (hovered) card ───────────────────────── */
+.nexus-card--active {
+  flex: 1 1 0;
+  box-shadow: 0 14px 44px rgba(41, 83, 212, 0.2);
+}
+
+/* ── Blue left column ────────────────────────────── */
+.nexus-blue-col {
+  flex-shrink: 0;
+  width: 125px; /* Increased width from 110px */
+  background: linear-gradient(160deg, #2953d4 0%, #5b8af5 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0 22px;
+}
+
+/* Icon circle */
+.nexus-icon-circle {
+  width: 52px; /* Increased from 46px */
+  height: 52px; /* Increased from 46px */
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nexus-icon {
+  font-size: 1.35rem; /* Increased from 1.1rem */
+  color: #2953d4;
+}
+
+/* Letter at bottom */
+.nexus-letter {
+  font-size: 3.2rem; /* Increased from 2.6rem */
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.28);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+/* ── White content panel ─────────────────────────── */
+.nexus-content-panel {
+  flex: 1;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically centers the text in the card */
+
+  /* Slide in */
+  max-width: 0;
+  opacity: 0;
+  padding: 0;
+  transition: max-width 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.28s ease 0.1s,
+              padding 0.32s ease;
+}
+
+.nexus-card--active .nexus-content-panel {
+  max-width: 500px;
+  opacity: 1;
+  padding: 28px 32px 28px 28px;
+}
+
+.nexus-card-title {
+  font-size: 1.45rem; /* Increased font size */
+  font-weight: 800;
+  color: #0e1f3d;
+  margin: 0 0 10px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.nexus-card-desc {
+  font-size: 0.96rem; /* Increased font size */
+  color: #5a6a80;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 900px) {
+  .nexus-slider {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+
+  .nexus-card {
+    flex: unset;
+    width: 100%;
+    height: auto;
+    min-height: 72px;
+  }
+
+  .nexus-blue-col {
+    width: 72px;
+    padding: 18px 0;
+  }
+
+  .nexus-card--active .nexus-content-panel {
+    max-width: 100%;
+    padding: 22px 20px;
+  }
+
+  .nexus-card-title {
+    white-space: normal;
+  }
+}

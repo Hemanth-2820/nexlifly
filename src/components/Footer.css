@@ -1,0 +1,335 @@
+/* ============================================================
+   SITE FOOTER — Rich dark corporate layout
+   ============================================================ */
+
+.site-footer {
+  background: #0e0e0e; /* Solid near-black corporate bg */
+  color: #ffffff;
+  padding: 90px 0 80px;
+  font-family: 'Inter', 'Outfit', sans-serif;
+  width: 100%;
+  border-top: 1px solid #1f1f1f;
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  /* 4 column layout with the left-most getting extra room for logo/form */
+  grid-template-columns: 1.5fr 1.1fr 1.2fr 1fr;
+  gap: 40px;
+}
+
+/* ── 1. Logo Area ── */
+.footer-logo-wrap {
+  margin-bottom: 48px; /* Restore vertical separation between Logo and Newsletter */
+}
+
+.footer-logo-text {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.logo-accent {
+  background: linear-gradient(135deg, #3b7df8, #2556d6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tm {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #666;
+  margin-left: 2px;
+  vertical-align: super;
+}
+
+/* ── 2. ISO Certification badges ── */
+.iso-certificates {
+  display: flex;
+  gap: 16px;
+  margin: 32px 0 48px;
+}
+
+.iso-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #333; /* Faint outer ring from screenshot */
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iso-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #222; /* Deep charcoal background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.iso-top {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+
+.iso-number {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #aaa;
+  line-height: 1;
+}
+
+/* ── 3. Newsletter Box & Integrated Input Bar ── */
+.newsletter-box {
+  margin-top: auto; /* Pushes form to the bottom of the column space */
+}
+
+.newsletter-heading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 18px;
+}
+
+.newsletter-form {
+  display: flex;
+  background: #1f1f1f; /* Subtle charcoal wrapper matching input */
+  border-radius: 8px;
+  padding: 6px;
+  border: 1px solid #2a2a2a;
+  max-width: 360px;
+}
+
+.newsletter-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 10px 14px;
+  font-size: 0.92rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.newsletter-input::placeholder {
+  color: #777;
+}
+
+.newsletter-btn {
+  background: #0b5ed7; /* Bright tech blue from screenshot */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background: #0053d0;
+}
+
+.chevron-icon {
+  font-size: 0.75rem;
+}
+
+/* ── 4. Navigation Columns ── */
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.footer-nav-heading {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-links li a {
+  font-size: 0.92rem;
+  color: #9ca3af; /* Soft gray links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  line-height: 1.5;
+}
+
+.footer-links li a:hover {
+  color: #ffffff; /* Invert to bright white on hover */
+}
+
+/* ── 5. Responsive Media Queries ── */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding: 0 24px;
+  }
+
+  .site-footer {
+    padding: 60px 0;
+  }
+
+  .iso-certificates {
+    margin: 28px 0;
+  }
+}
+
+/* ============================================================
+   FOOTER BOTTOM — Copyrights, Socials & Cookie Banner
+   ============================================================ */
+
+.footer-bottom {
+  background: #000000; /* Pitch black bg matching screenshot */
+  padding: 44px 0 40px;
+  border-top: 1px solid #191919;
+  margin-top: 60px; /* Gap below main footer */
+}
+
+.footer-bottom-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center everything horizontally */
+  text-align: center;
+}
+
+/* ── 1. Social Media Buttons ── */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.social-icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #262626; /* Thin outline matching screenshot */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon-link:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+/* ── 2. Copyright & Pipe Separated Links ── */
+.footer-copyright-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: #8e8e8e; /* Dimmer gray text */
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+.footer-copyright-row strong {
+  color: #ffffff; /* Bold white copyright text from screenshot */
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.copyright-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.copyright-links a {
+  color: #8e8e8e;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.copyright-links a:hover {
+  color: #ffffff;
+}
+
+.link-sep {
+  color: #333333; /* Dark separator pipes */
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+/* ── 3. Cookies Notification ── */
+.footer-cookies-text {
+  font-size: 0.84rem;
+  color: #7a7a7a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cookies-link {
+  color: #3b7df8; /* Accent blue link */
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.cookies-link:hover {
+  color: #6b9bfd;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .footer-copyright-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .copyright-links {
+    justify-content: center;
+  }
+}
+

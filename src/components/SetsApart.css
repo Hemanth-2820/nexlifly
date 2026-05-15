@@ -1,0 +1,217 @@
+.setsapart-section {
+  width: 100%;
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Upper Banner Image Module */
+.setsapart-banner {
+  width: 100%;
+  height: 100vh; /* Full-screen height */
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.setsapart-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Lower 3-Column Grid Content Module */
+.setsapart-grid-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 1.8fr;
+  background-color: #dfe5e1; /* Premium light sage-green/mint tint */
+  color: #111827;
+  min-height: 450px;
+}
+
+.setsapart-col {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Border separation matching Elementor dividers */
+.setsapart-col + .setsapart-col {
+  border-left: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* Column 1: Main Heading */
+.col-heading {
+  justify-content: flex-start;
+  padding-top: 90px;
+}
+
+.setsapart-main-title {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: #111827;
+}
+
+/* Column 2: Vertical Tabs */
+.col-tabs {
+  padding: 0; /* Extend full height for clean boundaries */
+  justify-content: stretch;
+}
+
+.tab-menu-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  gap: 25px;
+}
+
+.tab-menu-item:last-child {
+  border-bottom: none;
+}
+
+.tab-menu-num {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  transition: color 0.3s ease;
+}
+
+.tab-menu-text {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #4b5563;
+  transition: color 0.3s ease;
+}
+
+/* Hover & Active tab highlights */
+.tab-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tab-menu-item.active {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.tab-menu-item.active .tab-menu-num {
+  color: #111827;
+}
+
+.tab-menu-item.active .tab-menu-text {
+  color: #111827;
+  font-weight: 700;
+}
+
+/* Column 3: Dynamic Details Pane */
+.col-details {
+  padding: 80px 80px;
+  justify-content: center;
+  position: relative;
+}
+
+/* Animation for Tab Change transition */
+.detail-pane-wrapper {
+  animation: fadeInSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detail-stat {
+  font-size: 76px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: #111827;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.detail-subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 25px;
+  letter-spacing: -0.2px;
+}
+
+.detail-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.detail-link {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #111827; /* The bottom line from the screenshot */
+  transition: opacity 0.2s ease;
+}
+
+.detail-link:hover {
+  opacity: 0.7;
+}
+
+/* Responsive Styling */
+@media (max-width: 1200px) {
+  .setsapart-grid-container {
+    grid-template-columns: 1fr 1fr 1.5fr;
+  }
+  .setsapart-col {
+    padding: 60px 40px;
+  }
+  .setsapart-main-title {
+    font-size: 42px;
+  }
+  .detail-stat {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 992px) {
+  .setsapart-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .setsapart-col + .setsapart-col {
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+  }
+  .col-heading {
+    padding-top: 60px;
+  }
+  .tab-menu-item {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .setsapart-banner {
+    height: 40vh;
+  }
+  .setsapart-main-title {
+    font-size: 36px;
+  }
+  .tab-menu-text {
+    font-size: 18px;
+  }
+}

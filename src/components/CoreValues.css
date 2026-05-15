@@ -1,0 +1,178 @@
+/* ============================================================
+   CORE VALUES GRID SECTION — Hover-gradient cards
+   ============================================================ */
+
+.values-section {
+  width: 100%;
+  background: #fff;
+  padding: 100px 0;
+  font-family: 'Inter', 'Outfit', sans-serif;
+}
+
+.values-container {
+  max-width: 1140px; /* Reduced from 1280px to shrink cards naturally */
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Responsive CSS Grid ── */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Intro Title Styling ── */
+.value-heading-box {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+.value-section-title {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: #0e1f3d;
+  line-height: 1.25;
+  margin: 0;
+}
+
+/* ── Value Card ── */
+.value-card {
+  background: #fff;
+  border: 1.5px solid #ebeff5;
+  border-radius: 8px; /* Sharper, squarer corners */
+  padding: 28px; /* Reduced from 32px for compact fit */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Group text together instead of stretching */
+  aspect-ratio: 1 / 1; /* Forces perfect square geometry */
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ── The magic hover effect from user's screenshot! ── */
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(155deg, #2953d4 0%, #825bf5 100%); /* Blue-to-purple */
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  border-color: transparent;
+  box-shadow: 0 20px 40px rgba(41, 83, 212, 0.18);
+}
+
+.value-card:hover::before {
+  opacity: 1;
+}
+
+/* Header elements (Title & Icon) */
+.value-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px; /* Improved spacing */
+}
+
+.value-title {
+  font-size: 1.4rem; /* Slightly tweaked to fit square */
+  font-weight: 800;
+  color: #0e1f3d;
+  margin: 0;
+  line-height: 1.25;
+  transition: color 0.3s ease;
+  max-width: 75%;
+}
+
+.value-icon {
+  font-size: 2.2rem;
+  color: #0e1f3d;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.value-desc {
+  font-size: 0.92rem; /* Adjusted padding/size to ensure fit inside 1:1 square */
+  color: #5a6a80;
+  line-height: 1.7;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+/* Hover state triggers text & icon to flip to white instantly */
+.value-card:hover .value-title,
+.value-card:hover .value-desc {
+  color: #fff;
+}
+
+.value-card:hover .value-icon {
+  color: #fff !important;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ── Image grid slots ── */
+.value-image-box {
+  border-radius: 8px; /* Match sharper corners */
+  overflow: hidden;
+  height: 100%;
+  aspect-ratio: 1 / 1; /* Forces matching square geometry */
+}
+
+.value-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Responsive layout changes ── */
+@media (max-width: 1024px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .value-heading-box {
+    grid-column: span 2;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .value-heading-box {
+    grid-column: span 1;
+  }
+  
+  .value-card {
+    padding: 32px 28px;
+    aspect-ratio: auto; /* Better flow for single-column mobile layout */
+    min-height: auto;
+  }
+
+  .values-section {
+    padding: 60px 0;
+  }
+
+  /* Reorder images appropriately on small stack */
+  .value-image-box {
+    display: none; /* Hides decorative photos to optimize mobile flow */
+    aspect-ratio: auto;
+  }
+}

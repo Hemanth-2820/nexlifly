@@ -3,7 +3,8 @@
    ============================================================ */
 
 .site-footer {
-  background: #0e0e0e; /* Solid near-black corporate bg */
+  background: #0e0e0e;
+  /* Solid near-black corporate bg */
   color: #ffffff;
   padding: 90px 0 80px;
   font-family: 'Inter', 'Outfit', sans-serif;
@@ -23,29 +24,16 @@
 
 /* ── 1. Logo Area ── */
 .footer-logo-wrap {
-  margin-bottom: 48px; /* Restore vertical separation between Logo and Newsletter */
+  margin-bottom: 48px;
 }
 
 .footer-logo-text {
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #fff;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.logo-accent {
-  background: linear-gradient(135deg, #3b7df8, #2556d6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.tm {
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #666;
-  margin-left: 2px;
-  vertical-align: super;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 /* ── 2. ISO Certification badges ── */
@@ -59,7 +47,8 @@
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 2px solid #333; /* Faint outer ring from screenshot */
+  border: 2px solid #333;
+  /* Faint outer ring from screenshot */
   padding: 2px;
   display: flex;
   align-items: center;
@@ -70,7 +59,8 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #222; /* Deep charcoal background */
+  background: #222;
+  /* Deep charcoal background */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,7 +86,8 @@
 
 /* ── 3. Newsletter Box & Integrated Input Bar ── */
 .newsletter-box {
-  margin-top: auto; /* Pushes form to the bottom of the column space */
+  margin-top: auto;
+  /* Pushes form to the bottom of the column space */
 }
 
 .newsletter-heading {
@@ -108,7 +99,8 @@
 
 .newsletter-form {
   display: flex;
-  background: #1f1f1f; /* Subtle charcoal wrapper matching input */
+  background: #1f1f1f;
+  /* Subtle charcoal wrapper matching input */
   border-radius: 8px;
   padding: 6px;
   border: 1px solid #2a2a2a;
@@ -131,7 +123,8 @@
 }
 
 .newsletter-btn {
-  background: #0b5ed7; /* Bright tech blue from screenshot */
+  background: #0b5ed7;
+  /* Bright tech blue from screenshot */
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -179,14 +172,16 @@
 
 .footer-links li a {
   font-size: 0.92rem;
-  color: #9ca3af; /* Soft gray links */
+  color: #9ca3af;
+  /* Soft gray links */
   text-decoration: none;
   transition: color 0.3s ease;
   line-height: 1.5;
 }
 
 .footer-links li a:hover {
-  color: #ffffff; /* Invert to bright white on hover */
+  color: #ffffff;
+  /* Invert to bright white on hover */
 }
 
 /* ── 5. Responsive Media Queries ── */
@@ -213,15 +208,22 @@
   }
 }
 
+/* ── Capabilities Column Styles ── */
+.capabilities-group {
+  position: relative;
+}
+
 /* ============================================================
    FOOTER BOTTOM — Copyrights, Socials & Cookie Banner
    ============================================================ */
 
 .footer-bottom {
-  background: #000000; /* Pitch black bg matching screenshot */
+  background: #000000;
+  /* Pitch black bg matching screenshot */
   padding: 44px 0 40px;
   border-top: 1px solid #191919;
-  margin-top: 60px; /* Gap below main footer */
+  margin-top: 60px;
+  /* Gap below main footer */
 }
 
 .footer-bottom-inner {
@@ -230,7 +232,8 @@
   padding: 0 40px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center everything horizontally */
+  align-items: center;
+  /* Center everything horizontally */
   text-align: center;
 }
 
@@ -246,7 +249,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1.5px solid #262626; /* Thin outline matching screenshot */
+  border: 1.5px solid #262626;
+  /* Thin outline matching screenshot */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,13 +274,15 @@
   align-items: center;
   gap: 6px;
   font-size: 0.88rem;
-  color: #8e8e8e; /* Dimmer gray text */
+  color: #8e8e8e;
+  /* Dimmer gray text */
   margin-bottom: 22px;
   line-height: 1.6;
 }
 
 .footer-copyright-row strong {
-  color: #ffffff; /* Bold white copyright text from screenshot */
+  color: #ffffff;
+  /* Bold white copyright text from screenshot */
   font-weight: 700;
   margin-right: 4px;
 }
@@ -299,7 +305,8 @@
 }
 
 .link-sep {
-  color: #333333; /* Dark separator pipes */
+  color: #333333;
+  /* Dark separator pipes */
   font-size: 0.85rem;
   user-select: none;
 }
@@ -313,7 +320,8 @@
 }
 
 .cookies-link {
-  color: #3b7df8; /* Accent blue link */
+  color: #3b7df8;
+  /* Accent blue link */
   text-decoration: underline;
   transition: color 0.3s;
 }
@@ -328,8 +336,12 @@
     flex-direction: column;
     gap: 12px;
   }
+
   .copyright-links {
     justify-content: center;
   }
 }
 
+justify-content: center;
+}
+}

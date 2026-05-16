@@ -1,0 +1,190 @@
+/* ── Comparison Table (Zazz Inspired) ── */
+.comparison-section {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.comparison-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  text-align: left;
+  color: #000;
+  line-height: 1.2;
+}
+
+.comparison-table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eaeaea;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+  background: #fff;
+}
+
+.comparison-table th {
+  text-align: left;
+  padding: 25px 30px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+  background: #fff;
+  border-bottom: 2px solid #eaeaea;
+}
+
+.comparison-table td {
+  padding: 30px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+  vertical-align: top;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.col-challenge { 
+  width: 28%; 
+  background: #f0f7ff; /* Light blue tint */
+  font-weight: 600;
+  color: #000;
+}
+
+.col-nexlifly { 
+  width: 38%; 
+  background: #fff; 
+  font-weight: 500;
+  color: #000;
+}
+
+.col-others { 
+  width: 34%; 
+  background: #fff;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ── Service Highlights ── */
+.service-highlights {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+/* ── Info Cards Section (Zazz Inspired) ── */
+.info-cards-section {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.info-card {
+  text-align: left;
+}
+
+.info-card-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2.5rem;
+  color: #000;
+}
+/* ── Service Highlights Section (Zazz Inspired) ── */
+.service-highlights-section {
+  padding: 100px 0;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.highlight-card {
+  text-align: left;
+}
+
+.highlight-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 3rem;
+  color: #000;
+}
+
+.highlight-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #000;
+  line-height: 1.3;
+}
+
+.highlight-card p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+@media (max-width: 992px) {
+  .highlights-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+.info-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #000;
+  line-height: 1.3;
+}
+
+.info-card p {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ── Section Header (Shared) ── */
+.zazz-section-header {
+  margin-bottom: 60px;
+  max-width: 900px;
+}
+
+.zazz-section-header h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .comparison-title {
+    font-size: 2.2rem;
+  }
+}

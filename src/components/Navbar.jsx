@@ -2,31 +2,65 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   return (
     <header className="navbar-container">
       <div className="navbar-inner">
-        <Link to="/" className="navbar-logo" style={{ textDecoration: 'none' }}>
-          <div className="logo-icon">
-             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L2 22H22L12 2Z" fill="#007aff"/>
-              <path d="M12 2L2 22H12V2Z" fill="#0056b3"/>
-            </svg>
-          </div>
-          <span className="logo-text">nexlifly</span>
+        <Link to="/" className="navbar-logo">
+          <span className="logo-text">NEXLIFLY</span>
         </Link>
-        
+
         <nav className="navbar-links">
-          <Link to="/" className="nav-link">Capabilities <MdKeyboardArrowDown className="nav-arrow" /></Link>
-          <Link to="/" className="nav-link">Case Studies</Link>
+          <div className="nav-item capabilities-dropdown">
+            <Link to="/" className="nav-link">
+              Capabilities <MdKeyboardArrowDown className="nav-arrow" />
+            </Link>
+
+            {/* Mega Menu Dropdown */}
+            <div className="mega-menu">
+              <div className="mega-menu-inner">
+                {/* Left Side: Intro */}
+                <div className="mega-left">
+                  <div className="capabilities-badge">
+                    <span className="dot"></span> Capabilities
+                  </div>
+                  <h2 className="mega-heading">
+                    Empowering digital growth with smart, scalable, and secure solutions.
+                  </h2>
+                  <Link to="/" className="mega-cta">
+                    Schedule a Consultation <span className="arrow">›</span>
+                  </Link>
+                </div>
+
+                {/* Right Side: List */}
+                <div className="mega-right">
+                  <ul className="mega-service-list">
+                    <li><Link to="/capabilities/web-development">Web Development</Link></li>
+                    <li><Link to="/capabilities/app-development">App Development</Link></li>
+                    <li><Link to="/capabilities/software-development">Software Development</Link></li>
+                    <li><Link to="/capabilities/aws-devops">AWS & DevOps</Link></li>
+                    <li><Link to="/capabilities/hosting-server">Hosting & Server Management</Link></li>
+                    <li><Link to="/capabilities/digital-marketing">Digital Marketing</Link></li>
+                    <li><Link to="/capabilities/ai-chatbots">AI & RAG Chatbots</Link></li>
+                    <li><Link to="/capabilities/ivr-solutions">IVR Solutions</Link></li>
+                    <li><Link to="/capabilities/api-integrations">API Integrations</Link></li>
+                    <li><Link to="/capabilities/ecommerce-solutions">E-Commerce Solutions</Link></li>
+                    <li><Link to="/capabilities/ai-automation">AI & Automation</Link></li>
+                    <li><Link to="/capabilities/security-maintenance">Security & Maintenance</Link></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <Link to="/works" className="nav-link">Works</Link>
           <Link to="/about" className="nav-link">About Us <MdKeyboardArrowDown className="nav-arrow" /></Link>
-          <Link to="/" className="nav-link">Insights</Link>
-          <Link to="/" className="nav-link">Careers <MdKeyboardArrowDown className="nav-arrow" /></Link>
         </nav>
 
         <div className="navbar-cta">
-          <a href="#" className="btn-quote">Get a Quote <span className="btn-arrow">›</span></a>
+          <Link to="/contact-us" className="btn-quote">Get a Quote <span className="btn-arrow">›</span></Link>
         </div>
       </div>
     </header>

@@ -11,7 +11,7 @@ const teamData = [
     subheading: "From the desk of our Developer",
     bio: "A dedicated Software Developer with 5+ years of professional experience engineering robust technical foundations, refactoring legacy engines, and shipping scalable web products that empower businesses to reach the next phase of digital growth.",
     image: "/revanth_photo.jpg",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://www.linkedin.com/in/revanth-podduturi"
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const teamData = [
     subheading: "From the desk of our Full Stack Engineer",
     bio: "With 1+ year of hands-on experience, Hemanth brings a dynamic edge to full-stack development—bridging intelligent AI/ML integrations with robust cloud infrastructure. He architects end-to-end solutions that are fast, scalable, and future-ready, ensuring every product we ship is built for the demands of tomorrow's digital landscape.",
     image: "/hemanth_photo.jpg",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://www.linkedin.com/in/hemanth-silla-775b8b249"
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const teamData = [
     subheading: "From the desk of our Data Analyst",
     bio: "With 2+ years of experience transforming raw data into actionable intelligence, Sumanth drives strategic decisions through deep analytical insight. He specializes in uncovering trends, building dashboards, and delivering data-driven narratives that empower Nexlifly clients to optimize performance and stay ahead of the curve.",
     image: "/sumanth_photo.png",
-    linkedin: "https://linkedin.com"
+    linkedin: "https://www.linkedin.com/in/sumanth-silla-8a7ab025a"
   }
 ];
 

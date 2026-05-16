@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
-import { 
-  FaChevronRight, 
-  FaFacebookF, 
-  FaInstagram, 
-  FaLinkedinIn 
+import {
+  FaChevronRight,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6'; // Updated X (Twitter) icon
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="footer-container">
-        
+
         {/* ── Left Column: Logo, Badges & Newsletter ── */}
         <div className="footer-main-col">
           <div className="footer-logo-wrap">
-            {/* Replicating Logo: Styled Text & Nexlifly Icon */}
-            <span className="footer-logo-text">
-              <span className="logo-accent">n</span>exlifly<sup className="tm">™</sup>
-            </span>
+            <Link to="/" className="footer-logo-text">
+              NEXLIFLY
+            </Link>
           </div>
 
           {/* Clean CSS-based ISO Certificates matching the screenshot — REMOVED */}
@@ -29,11 +29,11 @@ const Footer = () => {
           <div className="newsletter-box">
             <h4 className="newsletter-heading">Subscribe to Newsletter</h4>
             <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
+              <input
+                type="email"
+                placeholder="Enter your email"
                 className="newsletter-input"
-                required 
+                required
               />
               <button type="submit" className="newsletter-btn">
                 Subscribe <FaChevronRight className="chevron-icon" />
@@ -63,25 +63,25 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ── Column 3: Capabilities & Careers ── */}
-        <div className="footer-nav-col">
-          <div className="footer-nav-group">
+        {/* ── Column 3: Capabilities ── */}
+        <div className="footer-nav-col capabilities-col">
+          <div className="footer-nav-group capabilities-group">
             <h4 className="footer-nav-heading">Capabilities</h4>
             <ul className="footer-links">
-              <li><Link to="/">IT Managed Services</Link></li>
-              <li><Link to="/">Managed Security Services</Link></li>
-              <li><Link to="/">Cybersecurity Services</Link></li>
-              <li><Link to="/">IT Staff Augmentation</Link></li>
-              <li><Link to="/">Mobile App Development</Link></li>
-              <li><Link to="/">Software Development</Link></li>
-              <li><Link to="/">Cloud Consulting</Link></li>
-              <li><Link to="/">Artificial Intelligence</Link></li>
-              <li><Link to="/">Data Engineering & Analytics</Link></li>
-              <li><Link to="/">Automation & Emerging Technologies</Link></li>
+              <li><Link to="/capabilities/web-development">Web Development</Link></li>
+              <li><Link to="/capabilities/app-development">App Development</Link></li>
+              <li><Link to="/capabilities/software-development">Software Development</Link></li>
+              <li><Link to="/capabilities/aws-devops">AWS & DevOps</Link></li>
+              <li><Link to="/capabilities/hosting-server">Hosting & Server Management</Link></li>
+              <li><Link to="/capabilities/digital-marketing">Digital Marketing</Link></li>
+              <li><Link to="/capabilities/ai-chatbots">AI & RAG Chatbots</Link></li>
+              <li><Link to="/capabilities/ivr-solutions">IVR Solutions</Link></li>
+              <li><Link to="/capabilities/api-integrations">API Integrations</Link></li>
+              <li><Link to="/capabilities/ecommerce-solutions">E-Commerce Solutions</Link></li>
+              <li><Link to="/capabilities/ai-automation">AI & Automation</Link></li>
+              <li><Link to="/capabilities/security-maintenance">Security & Maintenance</Link></li>
             </ul>
           </div>
-
-          {/* Careers nav group — REMOVED */}
         </div>
 
         {/* ── Column 4: Contact & Success Stories ── */}
@@ -96,7 +96,7 @@ const Footer = () => {
           <div className="footer-nav-group">
             <h4 className="footer-nav-heading">Success Stories</h4>
             <ul className="footer-links">
-              <li><Link to="/">Case Study</Link></li>
+              <li><Link to="/">Works</Link></li>
             </ul>
           </div>
         </div>
@@ -106,7 +106,7 @@ const Footer = () => {
       {/* ── Footer Bottom: Socials, Copy & Cookies ── */}
       <div className="footer-bottom">
         <div className="footer-bottom-inner">
-          
+
           {/* Social Icons */}
           <div className="footer-socials">
             <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-icon-link" aria-label="Facebook">

@@ -25,7 +25,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://www.nexlify.in',
+      hostname: 'https://www.nexlifly.in',
       dynamicRoutes,
     })
   ],

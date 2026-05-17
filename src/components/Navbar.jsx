@@ -29,9 +29,9 @@ const Navbar = () => {
                   <h2 className="mega-heading">
                     Empowering digital growth with smart, scalable, and secure solutions.
                   </h2>
-                  <Link to="/" className="mega-cta">
+                  <a href="https://calendly.com/nexlifly2/30min" target="_blank" rel="noopener noreferrer" className="mega-cta">
                     Schedule a Consultation <span className="arrow">›</span>
-                  </Link>
+                  </a>
                 </div>
 
                 {/* Right Side: List */}

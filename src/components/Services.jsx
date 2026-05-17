@@ -120,7 +120,7 @@ const Services = () => {
             <img src="/consultation_img.png" alt="Consultation Service" />
           </div>
 
-          <button className="btn-consultation">
+          <button className="btn-consultation" onClick={() => window.open('https://calendly.com/nexlifly2/30min', '_blank')}>
             Schedule a Consultation <FaArrowRight className="btn-consultation-arrow" />
           </button>
         </div>

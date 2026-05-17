@@ -76,7 +76,7 @@ const ProcessCard = ({ item, index }) => {
             ))}
           </ul>
           
-          <button className="process-cta-btn">
+          <button className="process-cta-btn" onClick={() => window.open('https://calendly.com/nexlifly2/30min', '_blank')}>
             Schedule a Consultation <FaChevronRight className="btn-arrow-icon" />
           </button>
         </div>

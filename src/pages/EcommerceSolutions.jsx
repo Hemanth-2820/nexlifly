@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import CapabilityForm from '../components/CapabilityForm';
 import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaShoppingBag, FaCreditCard, FaRegListAlt, FaGlobeAmericas, FaStore, FaBoxOpen } from 'react-icons/fa';
 import './EcommerceSolutions.css';
 import './ComparisonTable.css';
@@ -9,8 +10,6 @@ import { Link } from 'react-router-dom';
 import heroBg from '../assets/ecommerce_hero.png';
 
 const EcommerceSolutions = () => {
-  const [clientType, setClientType] = useState('');
-  const [budget, setBudget] = useState('');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +33,7 @@ const EcommerceSolutions = () => {
                 Launch and scale your online business with Nexlifly's premium e-commerce solutions. We build secure, high-performance digital storefronts that turn visitors into loyal customers.
               </p>
               <div className="hero-cta-group">
-                <button className="btn-hero-consult">
+                <button className="btn-hero-consult" onClick={() => window.open('https://calendly.com/nexlifly2/30min', '_blank')}>
                   Start Your 15-Minute E-Commerce Consultation <span className="blue-arrow">→</span>
                 </button>
               </div>
@@ -42,82 +41,7 @@ const EcommerceSolutions = () => {
 
             <div className="hero-form-wrapper">
               <div className="form-card-exact">
-                <h3>Build Your Online Store</h3>
-                <form className="service-form-exact" onSubmit={(e) => e.preventDefault()}>
-                  <div className="form-row-exact">
-                    <div className="form-group-exact">
-                      <label>First Name</label>
-                      <input type="text" placeholder="John" required />
-                    </div>
-                    <div className="form-group-exact">
-                      <label>Last Name</label>
-                      <input type="text" placeholder="Smith" required />
-                    </div>
-                  </div>
-                  <div className="form-row-exact">
-                    <div className="form-group-exact">
-                      <label>Email Address</label>
-                      <input type="email" placeholder="john@example.com" required />
-                    </div>
-                    <div className="form-group-exact">
-                      <label>Phone Number</label>
-                      <div className="phone-input-exact">
-                        <select><option>IN</option></select>
-                        <input type="tel" placeholder="+91" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="form-row-exact">
-                    <div className="form-group-exact">
-                      <label>Client Type</label>
-                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
-                        <option value="">Select client type</option>
-                        <option value="Individual / Founder">Individual / Founder</option>
-                        <option value="Startup / New Business">Startup / New Business</option>
-                        <option value="Agency / Partner">Agency / Partner</option>
-                        <option value="Established Brand">Established Brand</option>
-                        <option value="Other">Other (Please specify)</option>
-                      </select>
-                      {clientType === 'Other' && (
-                        <input 
-                          type="text" 
-                          placeholder="Please specify client type..." 
-                          className="form-input-specify-exact" 
-                          required 
-                          style={{ marginTop: '8px', width: '100%' }}
-                        />
-                      )}
-                    </div>
-                    <div className="form-group-exact">
-                      <label>Monthly Budget (in USD)</label>
-                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
-                        <option value="">Select budget range</option>
-                        <option value="< $100">&lt; $100</option>
-                        <option value="$100 - $500">$100 - $500</option>
-                        <option value="$500 - $1,000">$500 - $1,000</option>
-                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
-                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
-                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                        <option value="$10,000+">$10,000+</option>
-                        <option value="Other">Other (Please specify)</option>
-                      </select>
-                      {budget === 'Other' && (
-                        <input 
-                          type="text" 
-                          placeholder="Please specify your budget..." 
-                          className="form-input-specify-exact" 
-                          required 
-                          style={{ marginTop: '8px', width: '100%' }}
-                        />
-                      )}
-                    </div>
-                  </div>
-                  <div className="form-group-exact">
-                    <label>How can we help?</label>
-                    <textarea placeholder="Tell us about your e-commerce goals (e.g., new store, platform migration, conversion optimization)"></textarea>
-                  </div>
-                  <button type="submit" className="form-submit-blue">Submit</button>
-                </form>
+                <CapabilityForm title="Build Your Online Store" serviceName="E-Commerce Solutions" />
               </div>
             </div>
           </div>

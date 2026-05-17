@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaRegListAlt, FaGlobeAmericas, FaAppStoreIos, FaGooglePlay, FaSyncAlt } from 'react-icons/fa';
 import './AppDevelopment.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaAppStoreIos, FaGooglePlay, FaSyncAlt } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/app_dev_hero_new.jpg';
 
 const AppDevelopment = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -53,8 +58,8 @@ const AppDevelopment = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -66,17 +71,47 @@ const AppDevelopment = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -164,12 +199,57 @@ const AppDevelopment = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise App Development Process"
+        frameworkName="Mobile App Development Lifecycle"
+        abbreviation="MADL"
+        steps={[
+          {
+            letter: 'R',
+            title: 'Research & Strategy',
+            Icon: FaRegLightbulb,
+            description: 'We study target audience behaviors, system capabilities, and app store guidelines to map a solid platform strategy.'
+          },
+          {
+            letter: 'D',
+            title: 'Design & Wireframes',
+            Icon: FaCogs,
+            description: 'We design intuitive mobile layouts, user flows, and interactive mockups that prioritize thumb-friendly ergonomics.'
+          },
+          {
+            letter: 'D',
+            title: 'Development',
+            Icon: FaCode,
+            description: 'We code native or high-fidelity cross-platform apps (iOS & Android) with clean structures and seamless offline capability.'
+          },
+          {
+            letter: 'T',
+            title: 'Testing & Beta',
+            Icon: FaShieldAlt,
+            description: 'We perform device-grid testing and run private beta programs to eliminate memory leaks, crashes, and performance lags.'
+          },
+          {
+            letter: 'D',
+            title: 'Deployment',
+            Icon: FaRocket,
+            description: 'We manage the full app store submission process, ensuring complete compliance with Google Play and Apple App Store policies.'
+          },
+          {
+            letter: 'M',
+            title: 'Maintenance',
+            Icon: FaHandshake,
+            description: 'We provide real-time crash monitoring, OS version updates, feature additions, and backend server scaling support.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our App Development Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>iOS & Android Development</h4>

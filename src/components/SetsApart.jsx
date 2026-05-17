@@ -1,6 +1,85 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './SetsApart.css';
 import { FaChevronRight } from 'react-icons/fa';
+
+const CountingStat = ({ statString }) => {
+  const numericValue = parseInt(statString, 10) || 0;
+  const suffix = statString.replace(/[0-9]/g, '');
+
+  const [displayValue, setDisplayValue] = useState(0);
+  const elementRef = useRef(null);
+
+  useEffect(() => {
+    setDisplayValue(0);
+
+    let isMounted = true;
+    let animationFrameId;
+
+    const runAnimation = () => {
+      const duration = 1200; // 1.2 seconds for a premium, smooth feel
+      const startTime = performance.now();
+      const start = 0;
+      const end = numericValue;
+
+      const animate = (currentTime) => {
+        if (!isMounted) return;
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1);
+        
+        // Easing out cubic (starts fast, slows down at the end)
+        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOutCubic * (end - start) + start);
+
+        setDisplayValue(currentCount);
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          setDisplayValue(end);
+        }
+      };
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {
+      setDisplayValue(numericValue);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          runAnimation();
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = elementRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      isMounted = false;
+      cancelAnimationFrame(animationFrameId);
+      if (observer && currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [statString, numericValue]);
+
+  return (
+    <span ref={elementRef} className="counting-stat-number">
+      {displayValue}
+      {suffix}
+    </span>
+  );
+};
+
 
 const tabsData = [
   {
@@ -68,7 +147,9 @@ const SetsApart = () => {
         {/* Column 3: Dynamic Detail Pane */}
         <div className="setsapart-col col-details">
           <div className="detail-pane-wrapper" key={activeTabIdx}>
-            <div className="detail-stat">{currentTab.stat}</div>
+            <div className="detail-stat">
+              <CountingStat statString={currentTab.stat} />
+            </div>
             <h4 className="detail-subtitle">{currentTab.subtitle}</h4>
             <p className="detail-desc">{currentTab.desc}</p>
             

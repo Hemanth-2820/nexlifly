@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaLock, FaUserShield, FaRegListAlt, FaGlobeAmericas, FaUserLock, FaConnectdevelop } from 'react-icons/fa';
 import './SecurityMaintenance.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaLock, FaUserShield, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaUserLock, FaConnectdevelop } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaFileShield } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/security_hero.jpg';
 
 const SecurityMaintenance = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const SecurityMaintenance = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const SecurityMaintenance = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const SecurityMaintenance = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise Security & Maintenance Process"
+        frameworkName="Enterprise Security & Resilience Lifecycle"
+        abbreviation="ESRL"
+        steps={[
+          {
+            letter: 'A',
+            title: 'Assessment',
+            Icon: FaRegLightbulb,
+            description: 'We run complete perimeter port scans, server config audits, and compliance gap assessments.'
+          },
+          {
+            letter: 'D',
+            title: 'Detection',
+            Icon: FaCogs,
+            description: 'We configure enterprise Web Application Firewalls (WAF), integrity monitors, and intrusion alerts.'
+          },
+          {
+            letter: 'I',
+            title: 'Isolation',
+            Icon: FaCode,
+            description: 'We architect strict network subnets, container boundaries, and enforce zero-trust access.'
+          },
+          {
+            letter: 'H',
+            title: 'Hardening',
+            Icon: FaShieldAlt,
+            description: 'We install latest updates, disable redundant services, strengthen server encryptions, and passwords.'
+          },
+          {
+            letter: 'M',
+            title: 'Monitoring',
+            Icon: FaRocket,
+            description: 'We enable 24/7 security logging, automated cloud backups, and proactive host vulnerability scanning.'
+          },
+          {
+            letter: 'R',
+            title: 'Recovery',
+            Icon: FaHandshake,
+            description: 'We define disaster response playbooks, failover testing, and maintain rapid sandbox restore.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our Security Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Managed Cybersecurity</h4>

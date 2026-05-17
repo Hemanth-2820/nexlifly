@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaSearch, FaBullhorn, FaRegListAlt, FaGlobeAmericas, FaChartPie, FaUsers } from 'react-icons/fa';
 import './DigitalMarketing.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaSearch, FaBullhorn, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaChartPie, FaUsers } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaArrowTrendUp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/marketing_hero.jpg';
 
 const DigitalMarketing = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const DigitalMarketing = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const DigitalMarketing = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const DigitalMarketing = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise Digital Marketing Process"
+        frameworkName="Growth & Acquisition Optimization Lifecycle"
+        abbreviation="GAOL"
+        steps={[
+          {
+            letter: 'R',
+            title: 'Research & Competitors',
+            Icon: FaRegLightbulb,
+            description: 'We analyze market keyword density, competitor traffic channels, and search demand to locate growth opportunities.'
+          },
+          {
+            letter: 'S',
+            title: 'Strategy & Planning',
+            Icon: FaCogs,
+            description: 'We design custom omni-channel conversion funnels, landing page wires, and target audience definitions.'
+          },
+          {
+            letter: 'C',
+            title: 'Content Creation',
+            Icon: FaCode,
+            description: 'We produce SEO-optimized search copy, conversion landing pages, and interactive high-converting visual assets.'
+          },
+          {
+            letter: 'O',
+            title: 'On-Page & Tech SEO',
+            Icon: FaShieldAlt,
+            description: 'We optimize structured meta schemas, speed elements, page indexing, and semantic keyword distribution.'
+          },
+          {
+            letter: 'A',
+            title: 'Advertising',
+            Icon: FaRocket,
+            description: 'We launch hyper-targeted Google, Meta, and LinkedIn PPC campaigns managed against conversion KPIs.'
+          },
+          {
+            letter: 'R',
+            title: 'Reporting',
+            Icon: FaHandshake,
+            description: 'We supply transparent analytics attribution tracking, customer acquisition cost metrics, and campaign tuning.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our Marketing Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>SEO & Content Strategy</h4>

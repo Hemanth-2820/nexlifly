@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaRobot, FaRegListAlt, FaGlobeAmericas } from 'react-icons/fa';
 import './AiChatbots.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaRobot, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaMessage, FaComments, FaUserCheck, FaShareNodes } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/ai_hero.png';
 
 const AiChatbots = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const AiChatbots = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const AiChatbots = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const AiChatbots = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise AI Chatbots Process"
+        frameworkName="Conversational Intelligence Engineering Process"
+        abbreviation="CIEP"
+        steps={[
+          {
+            letter: 'D',
+            title: 'Discovery & Persona',
+            Icon: FaRegLightbulb,
+            description: 'We define the chatbot persona, customer engagement goals, conversational tone, and primary FAQ sets.'
+          },
+          {
+            letter: 'D',
+            title: 'Data Prep & RAG',
+            Icon: FaCogs,
+            description: 'We prepare context vectors, structure corporate training data, and connect secure RAG memory databases.'
+          },
+          {
+            letter: 'T',
+            title: 'Training & NLP',
+            Icon: FaCode,
+            description: 'We fine-tune the LLM and test natural language understanding paths to prevent off-topic or hallucinating responses.'
+          },
+          {
+            letter: 'I',
+            title: 'Integration',
+            Icon: FaShieldAlt,
+            description: 'We embed the chatbot widget onto your site and wire API webhooks to your internal CRM and databases.'
+          },
+          {
+            letter: 'E',
+            title: 'Evaluation',
+            Icon: FaRocket,
+            description: 'We conduct shadow testing and measure customer satisfaction scores to ensure high resolution rates.'
+          },
+          {
+            letter: 'M',
+            title: 'Monitoring',
+            Icon: FaHandshake,
+            description: 'We review conversation logs regularly, update semantic intents, and continuously tune the model.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our Chatbot Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Advanced NLP & Understanding</h4>

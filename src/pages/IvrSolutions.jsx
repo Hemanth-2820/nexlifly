@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaPhoneVolume, FaRobot, FaRegListAlt, FaGlobeAmericas, FaHeadphones } from 'react-icons/fa';
 import './IvrSolutions.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaPhoneVolume, FaRobot, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaHeadphones } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaMicrophoneLines, FaShuffle } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/ivr_hero.png';
 
 const IvrSolutions = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const IvrSolutions = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const IvrSolutions = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const IvrSolutions = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise IVR Solutions Process"
+        frameworkName="Interactive Voice Engineering Process"
+        abbreviation="IVEP"
+        steps={[
+          {
+            letter: 'P',
+            title: 'Planning & Routing',
+            Icon: FaRegLightbulb,
+            description: 'We analyze your call volumes, operator resources, and routing hierarchies to streamline operations.'
+          },
+          {
+            letter: 'F',
+            title: 'Flow Architecture',
+            Icon: FaCogs,
+            description: 'We map out high-efficiency menu flows, self-service portals, and conditional routing logic trees.'
+          },
+          {
+            letter: 'S',
+            title: 'Scripting & Voice',
+            Icon: FaCode,
+            description: 'We draft professional prompt scripts and produce natural, studio-quality voice-over recordings.'
+          },
+          {
+            letter: 'I',
+            title: 'Integration',
+            Icon: FaShieldAlt,
+            description: 'We connect the telephony engine to your CRM system for real-time customer data queries.'
+          },
+          {
+            letter: 'T',
+            title: 'Testing & Load',
+            Icon: FaRocket,
+            description: 'We perform multi-line concurrency tests and audio clarity tests to ensure zero dropped connections.'
+          },
+          {
+            letter: 'M',
+            title: 'Maintenance',
+            Icon: FaHandshake,
+            description: 'We monitor call answer metrics, queue wait-times, custom updates, and route path optimizations.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our IVR Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Smart Call Routing</h4>

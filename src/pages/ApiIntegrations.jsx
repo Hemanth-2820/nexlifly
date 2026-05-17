@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaLink, FaPlug, FaRegListAlt, FaGlobeAmericas } from 'react-icons/fa';
 import './ApiIntegrations.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaLink, FaPlug, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaConnectdevelop, FaSitemap } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/api_hero.png';
 
 const ApiIntegrations = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const ApiIntegrations = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const ApiIntegrations = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const ApiIntegrations = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise API Integrations Process"
+        frameworkName="Application Interface Connectivity Lifecycle"
+        abbreviation="AICL"
+        steps={[
+          {
+            letter: 'A',
+            title: 'Analysis',
+            Icon: FaRegLightbulb,
+            description: 'We review the developer documentation, schema payloads, and access credentials of all source systems.'
+          },
+          {
+            letter: 'D',
+            title: 'Design',
+            Icon: FaCogs,
+            description: 'We draft secure data transformation mapping rules, rate-limiting handlers, and webhook listeners.'
+          },
+          {
+            letter: 'C',
+            title: 'Connection',
+            Icon: FaCode,
+            description: 'We write custom middleware adaptors to translate, sync, and validate data payloads across endpoints.'
+          },
+          {
+            letter: 'T',
+            title: 'Testing',
+            Icon: FaShieldAlt,
+            description: 'We execute unit tests, dry-run syncs, and simulate edge cases like API timeouts and payload errors.'
+          },
+          {
+            letter: 'S',
+            title: 'Security',
+            Icon: FaRocket,
+            description: 'We lock down communication with SSL, configure encrypted token storage, and setup IP limits.'
+          },
+          {
+            letter: 'O',
+            title: 'Optimization',
+            Icon: FaHandshake,
+            description: 'We setup API caching, transaction logging, error-alerting protocols, and payload size reduction.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our API Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Custom API Development</h4>

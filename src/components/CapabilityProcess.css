@@ -1,0 +1,224 @@
+/* =====================================================
+   CAPABILITY PROCESS FRAMEWORK — Expandable Card Slider
+   ===================================================== */
+
+.cap-process-section {
+  width: 100%;
+  background: #f3f7fa; /* Matches user screenshot background tint exactly */
+  padding: 100px 0 90px;
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+}
+
+.cap-process-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ─────────────────────────────────────── */
+.cap-process-header {
+  text-align: center;
+  max-width: 1100px; /* Expanded from 860px to reduce empty side spaces */
+  margin: 0 auto 56px;
+}
+
+.cap-process-title {
+  font-size: clamp(28px, 3.8vw, 44px); /* Scaled up for strong hierarchy */
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.cap-process-subtitle {
+  font-size: 19px; /* Scaled up from 17px for superior presence */
+  color: #4b5563;
+  line-height: 1.8;
+  max-width: 1040px; /* Expanded from 820px to perfectly balance the layout */
+  margin: 0 auto;
+}
+
+.cap-process-subtitle strong {
+  color: #1b5bf7; /* Primary corporate blue highlight */
+  font-weight: 700;
+}
+
+/* ── Slider Row ──────────────────────────────────── */
+.cap-process-slider {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+  height: 290px; /* Increased from 250px to give cards extra breathing room */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Base Card (Interactive Expandable) ──────────── */
+.cap-process-card {
+  flex: 0 0 100px; /* Inactive card width */
+  display: flex;
+  flex-direction: row;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  transition: flex 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              box-shadow 0.35s ease;
+  height: 100%;
+  
+  /* Prevent flickering in browsers during rendering transitions */
+  transform: translateZ(0);
+}
+
+.cap-process-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* ── Active Expanded Card ────────────────────────── */
+.cap-process-card--active {
+  flex: 1 1 0; /* Expands to take available space */
+  box-shadow: 0 12px 36px rgba(13, 110, 253, 0.08);
+}
+
+/* ── Left Column (Gradient when active, white when inactive) ─ */
+.cap-process-blue-col {
+  flex-shrink: 0;
+  width: 100px;
+  background: #ffffff; /* Inactive card column backdrop is pure white */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  transition: background 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              width 0.45s cubic-bezier(0.25, 1, 0.5, 1); /* Expand smoothly alongside card */
+}
+
+.cap-process-card--active .cap-process-blue-col {
+  background: linear-gradient(180deg, #1b5bf7 0%, #4f46e5 100%); /* Active column gradient */
+  width: 135px; /* Smoothly expands from 100px to 135px when active */
+}
+
+/* Icon Container */
+.cap-process-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #eef1f6; /* Inactive circle background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cap-process-card--active .cap-process-icon-circle {
+  background: #ffffff; /* Active circle is pure white */
+}
+
+.cap-process-icon {
+  font-size: 1.3rem;
+  color: #4b5563; /* Inactive icon color */
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cap-process-card--active .cap-process-icon {
+  color: #1b5bf7; /* Active icon color matches brand primary blue */
+}
+
+/* Abbreviation Letter at bottom */
+.cap-process-letter {
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #d1d5db; /* Inactive letter color is light grey (exactly matching screenshot) */
+  line-height: 1;
+  user-select: none;
+  transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.cap-process-card--active .cap-process-letter {
+  color: #ffffff; /* Active letter is white */
+}
+
+/* ── Content Panel (Only visible on active card) ───── */
+.cap-process-content-panel {
+  flex: 1;
+  background: #ffffff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* Collapsed states */
+  max-width: 0;
+  opacity: 0;
+  padding: 0;
+  transition: max-width 0.45s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.28s ease 0.1s,
+              padding 0.3s ease;
+}
+
+.cap-process-card--active .cap-process-content-panel {
+  max-width: 800px;
+  opacity: 1;
+  padding: 24px 36px 24px 28px;
+}
+
+.cap-process-card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 10px;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.cap-process-card-desc {
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Responsive Styling ───────────────────────────── */
+@media (max-width: 992px) {
+  .cap-process-container {
+    padding: 0 24px;
+  }
+  
+  .cap-process-slider {
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+  }
+
+  .cap-process-card {
+    flex: unset;
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+  }
+
+  .cap-process-blue-col {
+    width: 80px;
+    padding: 16px 0;
+    transition: background 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                width 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .cap-process-card--active .cap-process-blue-col {
+    width: 100px; /* Expands slightly on mobile when active */
+  }
+
+  .cap-process-card--active .cap-process-content-panel {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .cap-process-card-title {
+    white-space: normal;
+  }
+}

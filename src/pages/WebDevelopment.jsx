@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaRegListAlt, FaGlobeAmericas, FaLaptopCode, FaLayerGroup, FaSearchDollar } from 'react-icons/fa';
 import './WebDevelopment.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaLaptopCode, FaLayerGroup, FaSearchDollar } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/web_dev_hero.jpg';
 
 const WebDevelopment = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -53,8 +58,8 @@ const WebDevelopment = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -66,17 +71,47 @@ const WebDevelopment = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -164,12 +199,57 @@ const WebDevelopment = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise Web Development Process"
+        frameworkName="Web Development Life Cycle"
+        abbreviation="WDLC"
+        steps={[
+          {
+            letter: 'R',
+            title: 'Requirements Analysis',
+            Icon: FaRegLightbulb,
+            description: 'We analyze your business goals, user personas, and brand architecture to establish clean technical requirements.'
+          },
+          {
+            letter: 'D',
+            title: 'Design & Prototyping',
+            Icon: FaCogs,
+            description: 'Our UI/UX designers create high-fidelity responsive wireframes and custom visual architectures optimized for engagement.'
+          },
+          {
+            letter: 'D',
+            title: 'Development',
+            Icon: FaCode,
+            description: 'Our engineering team builds high-performance frontend interfaces and secure custom backends using modern tech stacks.'
+          },
+          {
+            letter: 'T',
+            title: 'Testing & QA',
+            Icon: FaShieldAlt,
+            description: 'We run extensive cross-device tests, accessibility audits, and security vulnerability scans to guarantee absolute launch readiness.'
+          },
+          {
+            letter: 'D',
+            title: 'Deployment',
+            Icon: FaRocket,
+            description: 'We deploy the web platform using robust cloud architecture and configure global CDN distribution for instant load speeds.'
+          },
+          {
+            letter: 'M',
+            title: 'Maintenance',
+            Icon: FaHandshake,
+            description: 'We offer proactive 24/7 security monitoring, routine framework updates, backups, and ongoing performance optimizations.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our Web Development Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Custom Web Development</h4>

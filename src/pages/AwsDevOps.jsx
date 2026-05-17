@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaCloud, FaRegListAlt, FaGlobeAmericas, FaNetworkWired, FaUserShield, FaTools } from 'react-icons/fa';
 import './AwsDevOps.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaCloud, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaNetworkWired, FaUserShield, FaTools } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaGear } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/cloud_hero.jpg';
 
 const AwsDevOps = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const AwsDevOps = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const AwsDevOps = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const AwsDevOps = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise AWS & DevOps Process"
+        frameworkName="DevOps Implementation & Cloud Architecture Lifecycle"
+        abbreviation="DICAL"
+        steps={[
+          {
+            letter: 'P',
+            title: 'Planning & Audit',
+            Icon: FaRegLightbulb,
+            description: 'We assess your current infrastructure bottlenecks, security gaps, and monthly cloud spend to design an optimization path.'
+          },
+          {
+            letter: 'A',
+            title: 'Architecture Design',
+            Icon: FaCogs,
+            description: 'We architect secure, auto-scaling, and multi-region AWS cloud setups using Best Practice Frameworks.'
+          },
+          {
+            letter: 'I',
+            title: 'Infrastructure as Code',
+            Icon: FaCode,
+            description: 'We write infrastructure-as-code scripts (Terraform/CloudFormation) to build reproducible, error-free environments.'
+          },
+          {
+            letter: 'M',
+            title: 'Migration & CI/CD',
+            Icon: FaShieldAlt,
+            description: 'We configure bulletproof deployment pipelines to automate code compilation, security testing, and releases.'
+          },
+          {
+            letter: 'S',
+            title: 'Security Hardening',
+            Icon: FaRocket,
+            description: 'We implement strict IAM policies, network firewalls, data encryption, and robust compliance controls.'
+          },
+          {
+            letter: 'O',
+            title: 'Optimization',
+            Icon: FaHandshake,
+            description: 'We provide 24/7 log monitoring, performance tuning, budget alerts, and active cloud cost reduction strategies.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our AWS & DevOps Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>AWS Infrastructure Management</h4>

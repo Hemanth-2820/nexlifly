@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb, FaCogs, FaCode, FaShieldAlt, FaRocket, FaHandshake, FaChevronRight, FaCheckCircle, FaMobileAlt, FaFileInvoiceDollar, FaChartLine, FaRobot, FaMicrochip, FaRegListAlt, FaGlobeAmericas, FaBrain } from 'react-icons/fa';
 import './AiAutomation.css';
 import './ComparisonTable.css';
-import { FaChevronRight, FaCheckCircle, FaRocket, FaShieldAlt, FaMobileAlt, FaCode, FaHandshake, FaFileInvoiceDollar, FaChartLine, FaRobot, FaMicrochip, FaRegListAlt, FaRegLightbulb, FaGlobeAmericas, FaBrain } from 'react-icons/fa';
+import CapabilityProcess from '../components/CapabilityProcess';
+
 import { FaShieldHalved, FaWandMagicSparkles, FaArrowTrendUp } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/ai_automation_hero.png';
 
 const AiAutomation = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -51,8 +56,8 @@ const AiAutomation = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Work Email</label>
-                      <input type="email" placeholder="John@company.com" required />
+                      <label>Email Address</label>
+                      <input type="email" placeholder="john@example.com" required />
                     </div>
                     <div className="form-group-exact">
                       <label>Phone Number</label>
@@ -64,17 +69,47 @@ const AiAutomation = () => {
                   </div>
                   <div className="form-row-exact">
                     <div className="form-group-exact">
-                      <label>Company Size</label>
-                      <select required>
-                        <option value="">(# of Employees)</option>
-                        <option>1-10</option>
+                      <label>Client Type</label>
+                      <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
+                        <option value="">Select client type</option>
+                        <option value="Individual / Founder">Individual / Founder</option>
+                        <option value="Startup / New Business">Startup / New Business</option>
+                        <option value="Agency / Partner">Agency / Partner</option>
+                        <option value="Established Brand">Established Brand</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {clientType === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify client type..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                     <div className="form-group-exact">
                       <label>Monthly Budget (in USD)</label>
-                      <select required>
+                      <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                         <option value="">Select budget range</option>
+                        <option value="< $100">&lt; $100</option>
+                        <option value="$100 - $500">$100 - $500</option>
+                        <option value="$500 - $1,000">$500 - $1,000</option>
+                        <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                        <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                        <option value="$10,000+">$10,000+</option>
+                        <option value="Other">Other (Please specify)</option>
                       </select>
+                      {budget === 'Other' && (
+                        <input 
+                          type="text" 
+                          placeholder="Please specify your budget..." 
+                          className="form-input-specify-exact" 
+                          required 
+                          style={{ marginTop: '8px', width: '100%' }}
+                        />
+                      )}
                     </div>
                   </div>
                   <div className="form-group-exact">
@@ -162,12 +197,57 @@ const AiAutomation = () => {
         </div>
       </section>
 
+      {/* ── 4.5 Process Framework Section ── */}
+      <CapabilityProcess 
+        title="Framework That Powers Our Enterprise AI & Automation Process"
+        frameworkName="Enterprise Automation Blueprint Lifecycle"
+        abbreviation="EABL"
+        steps={[
+          {
+            letter: 'D',
+            title: 'Discovery',
+            Icon: FaRegLightbulb,
+            description: 'We shadow employees and map high-frequency, manual tasks that present optimal targets for automation.'
+          },
+          {
+            letter: 'M',
+            title: 'Mapping',
+            Icon: FaCogs,
+            description: 'We model workflow logic gates, data inputs, decision frameworks, and output structures.'
+          },
+          {
+            letter: 'A',
+            title: 'Architecture',
+            Icon: FaCode,
+            description: 'We build robust robotic processes, RPA bots, and AI automated connectors to execute tasks.'
+          },
+          {
+            letter: 'I',
+            title: 'Integration',
+            Icon: FaShieldAlt,
+            description: 'We connect the bots to legacy software, internal sheets, databases, and secure message boards.'
+          },
+          {
+            letter: 'T',
+            title: 'Testing',
+            Icon: FaRocket,
+            description: 'We run multi-variant load tests to verify data accuracy, speed, and exception-handling routines.'
+          },
+          {
+            letter: 'S',
+            title: 'Support',
+            Icon: FaHandshake,
+            description: 'We monitor run logs, optimize exception routes, update target bindings, and scale infrastructure.'
+          }
+        ]}
+      />
+
       {/* ── 5. Detailed Capabilities ── */}
       <section className="detailed-caps-exact">
         <div className="service-container">
           <div className="eyebrow-exact">Services</div>
           <h2 className="caps-title-exact">Our AI Capabilities:</h2>
-          
+
           <div className="caps-row-exact">
             <div className="cap-pillar-exact">
               <h4>Business Process Automation</h4>

@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ContactUs.css';
 import { FaCheckCircle, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const ContactUs = () => {
+  const [clientType, setClientType] = useState('');
+  const [budget, setBudget] = useState('');
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,7 +37,7 @@ const ContactUs = () => {
 
               <div className="contact-form-row">
                 <div className="contact-form-group">
-                  <label>Work Email*</label>
+                  <label>Email Address*</label>
                   <input type="email" placeholder="" required />
                 </div>
                 <div className="contact-form-group">
@@ -53,24 +56,47 @@ const ContactUs = () => {
 
               <div className="contact-form-row">
                 <div className="contact-form-group">
-                  <label>Company Size (Number of Employees)*</label>
-                  <select required>
+                  <label>Client Type*</label>
+                  <select required value={clientType} onChange={(e) => setClientType(e.target.value)}>
                     <option value=""></option>
-                    <option value="1-10">1-10</option>
-                    <option value="11-50">11-50</option>
-                    <option value="51-200">51-200</option>
-                    <option value="200+">200+</option>
+                    <option value="Individual / Founder">Individual / Founder</option>
+                    <option value="Startup / New Business">Startup / New Business</option>
+                    <option value="Agency / Partner">Agency / Partner</option>
+                    <option value="Established Brand">Established Brand</option>
+                    <option value="Other">Other (Please specify)</option>
                   </select>
+                  {clientType === 'Other' && (
+                    <input 
+                      type="text" 
+                      placeholder="Please specify client type..." 
+                      className="contact-other-input" 
+                      required 
+                      style={{ marginTop: '8px', width: '100%' }}
+                    />
+                  )}
                 </div>
                 <div className="contact-form-group">
                   <label>Budget*</label>
-                  <select required>
+                  <select required value={budget} onChange={(e) => setBudget(e.target.value)}>
                     <option value=""></option>
-                    <option value="$10,000 - $50,000">$10,000 - $50,000</option>
-                    <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                    <option value="$100,000 - $150,000">$100,000 - $150,000</option>
-                    <option value="$150,000+">$150,000+</option>
+                    <option value="< $100">&lt; $100</option>
+                    <option value="$100 - $500">$100 - $500</option>
+                    <option value="$500 - $1,000">$500 - $1,000</option>
+                    <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                    <option value="$3,000 - $5,000">$3,000 - $5,000</option>
+                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                    <option value="$10,000+">$10,000+</option>
+                    <option value="Other">Other (Please specify)</option>
                   </select>
+                  {budget === 'Other' && (
+                    <input 
+                      type="text" 
+                      placeholder="Please specify your budget..." 
+                      className="contact-other-input" 
+                      required 
+                      style={{ marginTop: '8px', width: '100%' }}
+                    />
+                  )}
                 </div>
               </div>
 

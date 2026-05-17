@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './responsive.css';
 import Navbar from './components/Navbar';
+import Analytics from './components/Analytics';
 import Home from './pages/Home';
 import About from './pages/About';
 import WebDevelopment from './pages/WebDevelopment';
@@ -23,6 +24,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <BrowserRouter>
+      <Analytics />
       <Navbar />
       <main>
         <Routes>

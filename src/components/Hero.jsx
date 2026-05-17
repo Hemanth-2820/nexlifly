@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 import { FaPlay, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -7,73 +8,85 @@ const capabilities = [
     tag: "Web Development",
     title: "Build High-Performance\nCustom Websites",
     desc: "End-to-end web development services from scalable architectures to responsive frontends. We build fast, secure, and modern web applications that drive engagement.",
-    bgImage: "/web_dev_bg.png"
+    bgImage: "/web_dev_bg.png",
+    path: "/capabilities/web-development"
   },
   {
     tag: "App Development",
     title: "Next-Gen Mobile\nApp Experiences",
     desc: "Crafting intuitive and powerful mobile experiences for iOS and Android. From native to cross-platform applications, we bring your vision to users' fingertips.",
-    bgImage: "/app_dev_bg.png"
+    bgImage: "/app_dev_bg.png",
+    path: "/capabilities/app-development"
   },
   {
     tag: "Software Development",
     title: "Custom Software Solutions\nBuilt to Scale",
     desc: "Robust, secure, and scalable custom software engineering tailored to your unique business operations and goals.",
-    bgImage: "/software_dev_bg.png"
+    bgImage: "/software_dev_bg.png",
+    path: "/capabilities/software-development"
   },
   {
     tag: "AWS & DevOps",
     title: "Streamline Operations with\nAWS & DevOps",
     desc: "Accelerate deployment and enhance security with expert cloud infrastructure, CI/CD pipelines, and AWS management.",
-    bgImage: "/aws_devops_bg.png"
+    bgImage: "/aws_devops_bg.png",
+    path: "/capabilities/aws-devops"
   },
   {
     tag: "Hosting & Server Management",
     title: "Reliable Hosting &\nServer Infrastructure",
     desc: "Ensure 99.9% uptime with our secure, optimized hosting and proactive server management solutions designed for scale.",
-    bgImage: "/hosting_bg.png"
+    bgImage: "/hosting_bg.png",
+    path: "/capabilities/hosting-server"
   },
   {
     tag: "Digital Marketing",
     title: "Data-Driven Digital\nMarketing Strategies",
     desc: "Maximize your ROI and brand visibility through targeted SEO, content creation, and highly optimized paid advertising campaigns.",
-    bgImage: "/marketing_bg.png"
+    bgImage: "/marketing_bg.png",
+    path: "/capabilities/digital-marketing"
   },
   {
     tag: "AI & RAG Chatbots",
     title: "Intelligent AI & RAG\nChatbot Integration",
     desc: "Revolutionize customer support and operations with state-of-the-art conversational AI and retrieval-augmented generation.",
-    bgImage: "/ai_rag_bg.png"
+    bgImage: "/ai_rag_bg.png",
+    path: "/capabilities/ai-chatbots"
   },
   {
     tag: "IVR Solutions",
     title: "Automate Communication\nwith Custom IVR",
     desc: "Seamlessly route calls and improve customer experience with smart, scalable Interactive Voice Response systems.",
-    bgImage: "/ivr_bg.png"
+    bgImage: "/ivr_bg.png",
+    path: "/capabilities/ivr-solutions"
   },
   {
     tag: "API Integrations",
     title: "Seamless Connectivity\nvia Smart APIs",
     desc: "Connect disparate systems and unlock new capabilities with secure, robust, and highly scalable API integrations.",
-    bgImage: "/api_bg.png"
+    bgImage: "/api_bg.png",
+    path: "/capabilities/api-integrations"
   },
   {
     tag: "E-Commerce Solutions",
     title: "Scalable & Secure\nE-Commerce Platforms",
     desc: "Drive sales with customized, high-converting online storefronts optimized for speed and seamless checkout experiences.",
-    bgImage: "/ecommerce_bg.png"
+    bgImage: "/ecommerce_bg.png",
+    path: "/capabilities/ecommerce-solutions"
   },
   {
     tag: "AI & Automation",
     title: "Transform Business with\nAI & Automation",
     desc: "Automate repetitive tasks, reduce costs, and enhance decision-making with powerful AI-driven enterprise workflows.",
-    bgImage: "/automation_bg.png"
+    bgImage: "/automation_bg.png",
+    path: "/capabilities/ai-automation"
   },
   {
     tag: "Security & Maintenance",
     title: "Proactive Security &\nOngoing Maintenance",
     desc: "Protect your digital assets with comprehensive vulnerability monitoring, regular updates, and 24/7 technical support.",
-    bgImage: "/security_bg.png"
+    bgImage: "/security_bg.png",
+    path: "/capabilities/security-maintenance"
   }
 ];
 
@@ -129,9 +142,9 @@ const Hero = () => {
                 
                 <p className="hero-description">{item.desc}</p>
                 
-                <a href="#" className="hero-cta">
+                <Link to={item.path} className="hero-cta">
                   Explore Our {item.tag} Capabilities
-                </a>
+                </Link>
               </div>
             </div>
           ))}

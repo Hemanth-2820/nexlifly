@@ -1,0 +1,314 @@
+/* ══════════════════════════════════════════════
+   GLOBAL RESPONSIVE OVERRIDES
+   Comprehensive mobile & tablet responsiveness
+   ══════════════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+
+  /* About Us */
+  .aboutus-hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+  .aboutus-stats-bar {
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .aboutus-content-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Services */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
+  }
+
+  /* Process Sections */
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Core Values */
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Sets Apart */
+  .setsapart-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* WhyUs */
+  .whyus-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Capability Pages */
+  .cap-hero-section {
+    padding: 100px 24px 60px;
+  }
+  .cap-hero-title {
+    font-size: 36px !important;
+  }
+  .cap-highlights-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .cap-solutions-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Contact Us */
+  .contact-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Works */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+
+  /* About Us */
+  .aboutus-section {
+    padding: 48px 16px;
+  }
+  .aboutus-hero-title {
+    font-size: 32px !important;
+  }
+  .aboutus-hero-desc {
+    font-size: 15px !important;
+  }
+  .aboutus-stats-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .aboutus-stat-number {
+    font-size: 36px !important;
+  }
+  .aboutus-content-card {
+    padding: 24px !important;
+  }
+
+  /* Services */
+  .services-section {
+    padding: 48px 16px;
+  }
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .services-heading {
+    font-size: 28px !important;
+  }
+
+  /* Team Section */
+  .team-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px;
+  }
+  .team-section {
+    padding: 48px 16px;
+  }
+  .team-heading {
+    font-size: 28px !important;
+  }
+
+  /* NexusFramework */
+  .nexus-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .nexus-section {
+    padding: 48px 16px;
+  }
+
+  /* Core Values */
+  .values-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+  .core-values-section {
+    padding: 48px 16px;
+  }
+
+  /* Process Sections */
+  .process-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .process-section {
+    padding: 48px 16px;
+  }
+
+  /* Sets Apart */
+  .setsapart-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .setsapart-section {
+    padding: 48px 16px;
+  }
+  .setsapart-heading {
+    font-size: 28px !important;
+  }
+
+  /* WhyUs */
+  .whyus-section {
+    padding: 48px 16px;
+  }
+  .whyus-heading {
+    font-size: 28px !important;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr !important;
+    gap: 36px;
+    padding: 0 20px;
+  }
+  .site-footer {
+    padding: 48px 0;
+  }
+  .footer-logo-img {
+    height: 100px !important;
+  }
+  .footer-bottom-inner {
+    padding: 0 20px;
+  }
+
+  /* Capability Pages */
+  .cap-hero-section {
+    padding: 80px 16px 40px;
+    min-height: auto;
+  }
+  .cap-hero-title {
+    font-size: 28px !important;
+    line-height: 1.2;
+  }
+  .cap-hero-desc {
+    font-size: 15px !important;
+  }
+  .cap-section {
+    padding: 48px 16px;
+  }
+  .cap-section-title {
+    font-size: 26px !important;
+  }
+  .cap-solutions-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .cap-highlights-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Contact Us */
+  .contact-section {
+    padding: 80px 16px 48px;
+  }
+  .contact-hero-title {
+    font-size: 28px !important;
+  }
+  .contact-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Works */
+  .works-hero {
+    padding: 80px 16px 40px;
+  }
+  .works-title {
+    font-size: 32px !important;
+  }
+  .works-grid-section {
+    padding: 32px 16px;
+  }
+  .works-cta {
+    padding: 32px 16px;
+  }
+  .cta-box {
+    padding: 32px 20px !important;
+  }
+  .cta-box h2 {
+    font-size: 24px !important;
+  }
+
+  /* Comparison Table */
+  .comparison-table-wrapper {
+    overflow-x: auto;
+  }
+  .comparison-table {
+    min-width: 600px;
+    font-size: 14px;
+  }
+}
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+
+  /* About Us */
+  .aboutus-hero-title {
+    font-size: 26px !important;
+  }
+  .aboutus-stat-number {
+    font-size: 28px !important;
+  }
+
+  /* Services */
+  .services-heading {
+    font-size: 24px !important;
+  }
+  .service-card {
+    padding: 20px !important;
+  }
+
+  /* Team */
+  .team-heading {
+    font-size: 24px !important;
+  }
+
+  /* Footer */
+  .footer-logo-img {
+    height: 80px !important;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-copyright-row {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* Capability Pages */
+  .cap-hero-title {
+    font-size: 24px !important;
+  }
+  .cap-section-title {
+    font-size: 22px !important;
+  }
+
+  /* Contact */
+  .contact-hero-title {
+    font-size: 24px !important;
+  }
+
+  /* Works */
+  .works-title {
+    font-size: 26px !important;
+  }
+  .cta-box h2 {
+    font-size: 20px !important;
+  }
+
+  /* About page wrapper */
+  .about-page-wrapper {
+    padding-top: 60px !important;
+  }
+}

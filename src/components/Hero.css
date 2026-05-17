@@ -234,16 +234,76 @@
   .hero-title {
     font-size: 48px;
   }
-  
   .hero-floating-card {
     margin-top: 40px;
     border-radius: 4px;
+  }
+  .hero-slide {
+    padding: 100px 32px 50px 32px;
+  }
+  .hero-description {
+    font-size: 16px;
+    max-width: 420px;
   }
 }
 
 @media (max-width: 768px) {
   .hero-title {
-    font-size: 36px;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .hero-slide {
+    padding: 90px 20px 40px 20px;
+    align-items: center;
+  }
+  .hero-content {
+    max-width: 100%;
+  }
+  .hero-description {
+    font-size: 15px;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+  .hero-badge {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+  }
+  .hero-cta {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+  .hero-floating-card {
+    padding: 24px;
+    max-width: 100%;
+  }
+  .card-text {
+    font-size: 13px;
+  }
+  .slider-controls {
+    right: 20px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  .hero-slide {
+    padding: 80px 16px 32px 16px;
+  }
+  .hero-description {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .hero-cta {
+    padding: 10px 20px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -253,16 +313,13 @@
     line-height: 1.15;
     margin-bottom: 12px;
   }
-  
   .hero-description {
     font-size: 17px;
     margin-bottom: 24px;
   }
-  
   .hero-badge {
     margin-bottom: 16px;
   }
-  
   .hero-slide {
     padding: 110px 40px 40px 40px;
   }

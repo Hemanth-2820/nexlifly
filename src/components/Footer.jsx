@@ -8,7 +8,7 @@ import {
   FaLinkedinIn
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6'; // Updated X (Twitter) icon
-import logo from '../assets/logo.png';
+import logo from '../assets/nexliflyLOGO.png';
 
 const Footer = () => {
   return (
@@ -18,8 +18,8 @@ const Footer = () => {
         {/* ── Left Column: Logo, Badges & Newsletter ── */}
         <div className="footer-main-col">
           <div className="footer-logo-wrap">
-            <Link to="/" className="footer-logo-text">
-              NEXLIFLY
+            <Link to="/" className="footer-logo-link">
+              <img src={logo} alt="Nexlifly" className="footer-logo-img" />
             </Link>
           </div>
 

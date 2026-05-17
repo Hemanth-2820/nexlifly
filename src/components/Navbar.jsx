@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import logo from '../assets/logo.png';
+import logo from '../assets/nexliflyLOGO.png';
 
 const Navbar = () => {
+  const location = useLocation();
+  const isDarkNav = location.pathname === '/works' || location.pathname === '/about';
+
   return (
-    <header className="navbar-container">
+    <header className={`navbar-container ${isDarkNav ? 'dark-navbar' : ''}`}>
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo">
-          <span className="logo-text">NEXLIFLY</span>
+          <img src={logo} alt="Nexlifly" className="main-logo-img" />
         </Link>
 
         <nav className="navbar-links">

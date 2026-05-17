@@ -4,9 +4,30 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 20px 40px;
+  padding: 14px 40px;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
   transition: all 0.3s ease;
+}
+
+.dark-navbar {
+  background: #0a0a0a !important;
+  background-image: none !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  position: fixed;
+}
+
+.dark-navbar .nav-link {
+  color: #ffffff;
+}
+
+.dark-navbar .btn-quote {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-navbar .main-logo-img {
+  mix-blend-mode: normal;
+  filter: brightness(1.25) contrast(1.1) drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.25));
 }
 
 .works-navbar {
@@ -50,6 +71,23 @@
   letter-spacing: 2px;
   color: #ffffff;
   transition: all 0.3s ease;
+}
+
+.main-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  transform: scale(3.6);
+  transform-origin: left center;
+  margin-left: 0;
+  filter: brightness(1.25) contrast(1.1) drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.25));
+  transition: all 0.3s ease;
+}
+
+.main-logo-img:hover {
+  transform: scale(3.75);
+  filter: brightness(1.4) contrast(1.15) drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.5));
 }
 
 .works-navbar .logo-text {

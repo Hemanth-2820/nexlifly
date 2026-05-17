@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Works.css';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -68,7 +69,7 @@ const Works = () => {
           <div className="cta-box">
             <h2>Have a project in mind?</h2>
             <p>Let's build something extraordinary together.</p>
-            <button className="cta-btn-primary">Get in Touch</button>
+            <Link to="/contact-us" className="cta-btn-primary">Get in Touch</Link>
           </div>
         </div>
       </section>

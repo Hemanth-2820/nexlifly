@@ -113,8 +113,18 @@ const ContactUs = () => {
     setSubmitStatus('submitting');
     setApiErrorMessage('');
 
-    // If key is placeholder, run in demo mode (not the case here, as we have a live key!)
-    if (WEB3FORMS_ACCESS_KEY === 'YOUR_ACCESS_KEY_HERE' || !WEB3FORMS_ACCESS_KEY) {
+    // ==========================================
+    // HUBSPOT INTEGRATION SETTINGS
+    // ==========================================
+    // 1. Create a free HubSpot account.
+    // 2. Go to Marketing > Forms and create a new regular form.
+    // 3. Find your PORTAL ID (Hub ID) in the top right corner of HubSpot.
+    // 4. Find your FORM ID from the form's URL or embed code.
+    const PORTAL_ID = '246229949'; 
+    const FORM_ID = 'ce36a720-8677-45fd-8ade-1dda6c8d0a60';
+    
+    // If IDs are not set, show demo mode success
+    if (PORTAL_ID === 'YOUR_HUBSPOT_PORTAL_ID' || !PORTAL_ID) {
       setTimeout(() => {
         setIsDemoMode(true);
         setSubmitStatus('success');
@@ -122,36 +132,43 @@ const ContactUs = () => {
       return;
     }
 
+    // HubSpot requires data in a specific "fields" array format
+    const hubspotData = {
+      fields: [
+        { name: 'firstname', value: formData.firstName },
+        { name: 'lastname', value: formData.lastName },
+        { name: 'email', value: formData.email },
+        { name: 'phone', value: `${formData.phonePrefix} ${formData.phoneNumber}` },
+        { name: 'client_type', value: formData.clientType === 'Other' ? formData.otherClientType : formData.clientType },
+        { name: 'budget', value: formData.budget === 'Other' ? formData.otherBudget : formData.budget },
+        { name: 'message', value: formData.message }
+      ],
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${PORTAL_ID}/${FORM_ID}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json'
+          'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`,
-          from_name: 'Nexlifly Website',
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: `${formData.phonePrefix} ${formData.phoneNumber}`,
-          client_type: formData.clientType === 'Other' ? formData.otherClientType : formData.clientType,
-          budget: formData.budget === 'Other' ? formData.otherBudget : formData.budget,
-          message: formData.message
-        })
+        body: JSON.stringify(hubspotData)
       });
 
-      const result = await response.json();
-      
-      if (result.success) {
+      if (response.ok) {
         setIsDemoMode(false);
         setSubmitStatus('success');
       } else {
+        const errorData = await response.json();
+        console.error("HubSpot Error:", errorData);
         setSubmitStatus('error');
-        setApiErrorMessage(result.message || 'Something went wrong. Please try again.');
+        setApiErrorMessage('Something went wrong. Please check if your HubSpot Form fields match exactly.');
       }
     } catch (error) {
+      console.error("Network Error:", error);
       setSubmitStatus('error');
       setApiErrorMessage('Unable to send message. Please check your connection and try again.');
     }

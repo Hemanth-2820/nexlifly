@@ -20,6 +20,7 @@ import EcommerceSolutions from './pages/EcommerceSolutions';
 import Works from './pages/Works';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/Footer';
+import WhatsAppFloat from './components/WhatsAppFloat';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppFloat />
     </BrowserRouter>
   );
 }

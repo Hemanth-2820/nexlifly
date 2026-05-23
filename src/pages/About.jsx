@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AboutUs from '../components/AboutUs';
 import TeamSection from '../components/TeamSection';
+import PartnerSection from '../components/PartnerSection';
 import NexusFramework from '../components/NexusFramework';
 import CoreValues from '../components/CoreValues';
 
@@ -23,6 +24,7 @@ const About = () => {
     >
       <AboutUs />
       <TeamSection />
+      <PartnerSection />
       <NexusFramework />
       <CoreValues />
     </div>

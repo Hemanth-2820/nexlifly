@@ -161,6 +161,20 @@ const ContactUs = () => {
       if (response.ok) {
         setIsDemoMode(false);
         setSubmitStatus('success');
+
+        // Trigger WhatsApp Notification Webhook on BigRock PHP Server
+        try {
+          await fetch('https://nexlifly.com/send_lead_whatsapp.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+          });
+        } catch (waError) {
+          console.error("WhatsApp notification trigger failed:", waError);
+          // Fail silently so the user still sees a success message even if the WhatsApp API is down or slow
+        }
       } else {
         const errorData = await response.json();
         console.error("HubSpot Error:", errorData);

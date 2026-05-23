@@ -53,6 +53,7 @@
   width: 100%;
   aspect-ratio: 4 / 4.2; /* Captures exact headshot scale from screenshot */
   object-fit: cover;
+  object-position: center 20%; /* Move image up so face sits higher in frame */
   border-radius: 2px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   position: relative;

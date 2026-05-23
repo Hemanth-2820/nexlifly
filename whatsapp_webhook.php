@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         . "• *App Development:* High-performance iOS and Android mobile apps.\n"
                         . "• *Software Development:* Tailored, robust software built for scale.\n"
                         . "• *Ecommerce Solutions:* High-converting online retail stores.\n\n"
-                        . "🔗 Explore our work: nexlifly.com/works\n"
+                        . "🔗 Explore our work: nexlifly.in/works\n"
                         . "Type *hello* to return to the main menu.";
         } elseif ($message_text == "2") {
             $reply_text = "☁️ *Nexlifly Cloud & IT Services:*\n\n"

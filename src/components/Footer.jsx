@@ -129,7 +129,7 @@ const Footer = () => {
             <div className="copyright-links">
               <Link to="/">Contact Us</Link> <span className="link-sep">|</span>
               <Link to="/">Disclaimer</Link> <span className="link-sep">|</span>
-              <Link to="/">Privacy Policy</Link> <span className="link-sep">|</span>
+              <a href="/privacy-policy.html">Privacy Policy</a> <span className="link-sep">|</span>
               <Link to="/">Terms of use</Link> <span className="link-sep">|</span>
               <Link to="/">Sitemap</Link> <span className="link-sep">|</span>
               <Link to="/">Raise a Grievance</Link>

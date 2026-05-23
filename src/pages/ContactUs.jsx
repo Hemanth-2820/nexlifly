@@ -164,7 +164,7 @@ const ContactUs = () => {
 
         // Trigger WhatsApp Notification Webhook on BigRock PHP Server
         try {
-          await fetch('https://nexlifly.com/send_lead_whatsapp.php', {
+          await fetch('https://nexlifly.in/send_lead_whatsapp.php', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

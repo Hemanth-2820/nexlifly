@@ -6,7 +6,7 @@ const WhatsAppFloat = () => {
   // Your WhatsApp Business Phone Number
   // By default, using the Meta developer test number. 
   // Update this to your real phone number (starting with country code like 91) when you go live!
-  const phoneNumber = "15556521352"; 
+  const phoneNumber = "917671031879"; 
   
   // The pre-filled message that automatically triggers your chatbot menu in whatsapp_webhook.php
   const message = encodeURIComponent("hello"); 

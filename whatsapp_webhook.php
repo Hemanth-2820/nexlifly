@@ -3,7 +3,7 @@
 // CONFIGURATION
 // ==========================================
 $verify_token = "NexliflySecretToken123"; // Custom secure verification token for Meta verification
-$access_token = "EAAZCDzwNkUwcBRixhYOSf0KZC5ExSPaSP9TtHIqIZAWHVVlrXpDlHoQf702UjopX6oroJ76556v098LnOaIZBGXfJfbulkNdIYBSUbtRxQnKb5bGGtv5SNeMc5NA7vrTDmlIdZAzZAzdJJLY1zQsUTrvfZAEZA1D2Q9Ydw8UA243UvLwgxuXf6Fp5RfHUIWJ7DwEotGR4dbH7cOT2hgN2uZAsK74qgGZBdebq2GXkjPtiocbSZCa4jDE74DZA0mgGYZBVfVIwI7ZA0HrQmraUPZAf8WLZAsh"; // Put your regenerated secure token here
+$access_token = "EAAZCDzwNkUwcBRj2lJZAZBZA3afpFWBulHZBZC93CiFIeQWl3RPT2ZCOvqBIOV6pOgGrZA3ZCJa8QtJWTIpAXb5j1Be0A4ZADIrAxkJUZCKJ7UsFrnZCb5i3rcQZBJiHNFaBR0b8YZCEZCFOVhZCTkQ9L0ZCUNu7GYcJx9Tfyr2nAAPRh5suYbZCQczVUZCcz1VcdPsgWSyBhdzc7blgXf6EO6sfW2jv1eP3W6rLhXUAMruXVj0YQsMZBBWwbedZCzNKuWsKXIGuElE4TLkhtMRI8TEk1LJCZAtlteBwZDZD"; // Put your regenerated secure token here
 $phone_number_id = "1206665735855928"; // Your WhatsApp Phone Number ID
 
 // ==========================================

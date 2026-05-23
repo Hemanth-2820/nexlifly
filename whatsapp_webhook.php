@@ -3,8 +3,8 @@
 // CONFIGURATION
 // ==========================================
 $verify_token = "NexliflySecretToken123"; // Custom secure verification token for Meta verification
-$access_token = "EAAZCDzwNkUwcBRj2lJZAZBZA3afpFWBulHZBZC93CiFIeQWl3RPT2ZCOvqBIOV6pOgGrZA3ZCJa8QtJWTIpAXb5j1Be0A4ZADIrAxkJUZCKJ7UsFrnZCb5i3rcQZBJiHNFaBR0b8YZCEZCFOVhZCTkQ9L0ZCUNu7GYcJx9Tfyr2nAAPRh5suYbZCQczVUZCcz1VcdPsgWSyBhdzc7blgXf6EO6sfW2jv1eP3W6rLhXUAMruXVj0YQsMZBBWwbedZCzNKuWsKXIGuElE4TLkhtMRI8TEk1LJCZAtlteBwZDZD"; // Put your regenerated secure token here
-$phone_number_id = "1206665735855928"; // Your WhatsApp Phone Number ID
+$access_token = "EAAZCDzwNkUwcBRtTyCCrZB0wKmyX9UqeyiGOkEABqFkClWzA79ZAzbddSwGOo8PGTrIOT3YVcBepscZCc9e1xCjjQYjfcvBFI8SDiIZAIzeyDK3waNZBvtEqaZB2CEVUagTPz7Fyi0lNQ6cIPXJmIPKYV2KioyNUr63fsX4YoA6W8Kpuad4ZB6E1RyUJeaARonj0MWPlSo7Hv8TuLeaKhL93rfZBIyRr0KaA5P8isiDZCc3dH7y3QazedzdRQlW2iZCJfKaVu3WmuGlPTWjYyMZBZBk9q"; // Put your regenerated secure token here
+$phone_number_id = "1104794059387932"; // Your WhatsApp Phone Number ID
 
 // ==========================================
 // PHASE 1: META WEBHOOK VERIFICATION (GET)
@@ -58,7 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
             // Send the Premium Interactive List Menu (View Menu button)
-            send_whatsapp_list_menu($from_number, $phone_number_id, $access_token);
+            $response = send_whatsapp_list_menu($from_number, $phone_number_id, $access_token);
+            file_put_contents('log.txt', "\n[SEND MENU RESPONSE] -> " . $response . "\n", FILE_APPEND);
             
             header('HTTP/1.1 200 OK');
             exit;
@@ -114,7 +115,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Send the message back via Meta API
         if (!empty($reply_text)) {
-            send_whatsapp_message($from_number, $reply_text, $phone_number_id, $access_token);
+            $response = send_whatsapp_message($from_number, $reply_text, $phone_number_id, $access_token);
+            file_put_contents('log.txt', "\n[SEND REPLY RESPONSE] -> " . $response . "\n", FILE_APPEND);
         }
     }
     

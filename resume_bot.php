@@ -26,7 +26,7 @@ if (!isset($data['phone'])) {
 }
 
 $phone = trim($data['phone']);
-$paused_file = 'paused_chats.txt';
+$paused_file = __DIR__ . '/paused_chats.txt';
 
 if (file_exists($paused_file)) {
     // 1. Read all paused numbers
@@ -57,7 +57,7 @@ echo json_encode([
 // HELPER FUNCTION: LOG SYSTEM EVENT
 // ==========================================
 function log_system_event($phone, $text) {
-    $dir = 'chats';
+    $dir = __DIR__ . '/chats';
     $file = "{$dir}/{$phone}.json";
     
     if (file_exists($file)) {

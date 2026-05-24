@@ -14,8 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit(0);
 }
 
-$dir = 'chats';
-$paused_file = 'paused_chats.txt';
+$dir = __DIR__ . '/chats';
+$paused_file = __DIR__ . '/paused_chats.txt';
 
 // Read paused numbers (meaning they are in Live Chat mode)
 $paused_numbers = [];

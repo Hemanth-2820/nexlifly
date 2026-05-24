@@ -63,7 +63,7 @@ if ($http_code === 200 && isset($meta_response['messages'][0]['id'])) {
     
     // Extract customer's current name from their logs
     $customer_name = "Customer";
-    $dir = 'chats';
+    $dir = __DIR__ . '/chats';
     $file = "{$dir}/{$phone}.json";
     
     if (file_exists($file)) {
@@ -94,7 +94,7 @@ if ($http_code === 200 && isset($meta_response['messages'][0]['id'])) {
 // HELPER FUNCTION: APPEND TO CHAT LOGS
 // ==========================================
 function log_agent_chat_message($phone, $name, $sender, $text, $msg_id) {
-    $dir = 'chats';
+    $dir = __DIR__ . '/chats';
     if (!is_dir($dir)) {
         mkdir($dir, 0777, true);
     }

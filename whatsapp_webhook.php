@@ -38,12 +38,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = $data['entry'][0]['changes'][0]['value']['messages'][0];
         $from_number = $message['from']; // Sender's phone number
         
+        // Extract customer's profile name if available
+        $customer_name = "Customer";
+        if (isset($data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name'])) {
+            $customer_name = $data['entry'][0]['changes'][0]['value']['contacts'][0]['profile']['name'];
+        }
+        
         // Extract message content: Support both plain text AND interactive list selections
         $message_text = "";
+        $log_text = "";
         if (isset($message['text']['body'])) {
             $message_text = trim(strtolower($message['text']['body']));
+            $log_text = $message['text']['body'];
         } elseif (isset($message['interactive']['list_reply']['id'])) {
             $message_text = trim(strtolower($message['interactive']['list_reply']['id']));
+            $log_text = isset($message['interactive']['list_reply']['title']) ? "Selected Option: " . $message['interactive']['list_reply']['title'] : $message_text;
+        }
+        
+        // Log incoming customer message
+        if (!empty($log_text)) {
+            log_chat_message($from_number, $customer_name, 'customer', $log_text);
         }
         
         // Define the file name that holds paused phone numbers
@@ -60,6 +74,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Send the Premium Interactive List Menu (View Menu button)
             $response = send_whatsapp_list_menu($from_number, $phone_number_id, $access_token);
             file_put_contents('log.txt', "\n[SEND MENU RESPONSE] -> " . $response . "\n", FILE_APPEND);
+            
+            // Log bot menu sent
+            log_chat_message($from_number, $customer_name, 'bot', "Sent main interactive menu (View Menu)");
             
             header('HTTP/1.1 200 OK');
             exit;
@@ -117,6 +134,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($reply_text)) {
             $response = send_whatsapp_message($from_number, $reply_text, $phone_number_id, $access_token);
             file_put_contents('log.txt', "\n[SEND REPLY RESPONSE] -> " . $response . "\n", FILE_APPEND);
+            
+            // Log bot response
+            log_chat_message($from_number, $customer_name, 'bot', $reply_text);
         }
     }
     
@@ -229,5 +249,48 @@ function send_whatsapp_list_menu($to, $phone_number_id, $access_token) {
     curl_close($ch);
     
     return $response;
+}
+
+// ==========================================
+// FUNCTION: LOG CHAT MESSAGE (JSON storage)
+// ==========================================
+function log_chat_message($phone, $name, $sender, $text) {
+    $dir = 'chats';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0777, true);
+    }
+    $file = "{$dir}/{$phone}.json";
+    
+    $chat = [
+        'phone' => $phone,
+        'name' => $name,
+        'last_updated' => time(),
+        'unread' => ($sender === 'customer'),
+        'messages' => []
+    ];
+    
+    if (file_exists($file)) {
+        $existing = json_decode(file_get_contents($file), true);
+        if (is_array($existing)) {
+            $chat = array_merge($chat, $existing);
+            $chat['last_updated'] = time();
+            if ($sender === 'customer') {
+                $chat['unread'] = true;
+            }
+        }
+    }
+    
+    // Always use the latest profile name if available
+    if (!empty($name) && $name !== 'Customer') {
+        $chat['name'] = $name;
+    }
+    
+    $chat['messages'][] = [
+        'sender' => $sender,
+        'text' => $text,
+        'timestamp' => time()
+    ];
+    
+    file_put_contents($file, json_encode($chat, JSON_PRETTY_PRINT));
 }
 ?>

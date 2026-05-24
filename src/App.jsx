@@ -19,6 +19,7 @@ import AiAutomation from './pages/AiAutomation';
 import EcommerceSolutions from './pages/EcommerceSolutions';
 import Works from './pages/Works';
 import ContactUs from './pages/ContactUs';
+import AdminChat from './pages/AdminChat';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/capabilities/ecommerce-solutions" element={<EcommerceSolutions />} />
           <Route path="/works" element={<Works />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/admin-chat" element={<AdminChat />} />
         </Routes>
       </main>
       <Footer />

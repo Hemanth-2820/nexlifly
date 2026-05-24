@@ -76,10 +76,9 @@
   }
 }
 
-/* Responsiveness: Adjust for mobile screens */
 @media (max-width: 768px) {
   .whatsapp-floating-button {
-    bottom: 90px; /* Shifted up on mobile to avoid overlapping! */
+    bottom: 95px; /* Shifted up on mobile to avoid overlapping! */
     right: 20px;
     width: 50px;
     height: 50px;

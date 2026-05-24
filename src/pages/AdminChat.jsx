@@ -57,11 +57,19 @@ function AdminChat() {
   // Default secure passcode
   const SECURE_PASSCODE = 'NexliflyAdmin77';
 
-  // Request browser notification permissions on mount
+  // Request browser notification permissions on mount and manage HubSpot visibility class
   useEffect(() => {
     if (window.Notification && Notification.permission === 'default') {
       Notification.requestPermission();
     }
+    
+    // Hide HubSpot widget ONLY on the AdminChat page by adding a class to the body
+    document.body.classList.add('admin-chat-page');
+    
+    return () => {
+      // Re-enable HubSpot widget globally when leaving the AdminChat page
+      document.body.classList.remove('admin-chat-page');
+    };
   }, []);
 
   // Poll chats API every 3 seconds

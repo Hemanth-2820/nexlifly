@@ -748,13 +748,13 @@ html, body, #root, main {
   }
 }
 
-/* --- HubSpot Chat Widget Blocking (Hides it on Admin Screen) --- */
-#hubspot-messages-iframe-container,
-.hs-messages-widget,
-#hubspot-conversations-iframe,
-iframe[src*="hubspot"],
-iframe[id*="hubspot"],
-.hs-conversations-widget {
+/* --- HubSpot Chat Widget Blocking (Hides it on Admin Screen ONLY) --- */
+body.admin-chat-page #hubspot-messages-iframe-container,
+body.admin-chat-page .hs-messages-widget,
+body.admin-chat-page #hubspot-conversations-iframe,
+body.admin-chat-page iframe[src*="hubspot"],
+body.admin-chat-page iframe[id*="hubspot"],
+body.admin-chat-page .hs-conversations-widget {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;

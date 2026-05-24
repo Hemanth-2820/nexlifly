@@ -64,12 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $paused_file = __DIR__ . '/paused_chats.txt';
         $paused_numbers = file_exists($paused_file) ? file($paused_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
 
-        // If the bot is currently paused for this number, ignore and do not auto-reply
-        if (in_array($from_number, $paused_numbers)) {
-            header('HTTP/1.1 200 OK');
-            exit;
-        }
-
         // If the customer wants to start over, we unpause the bot and send them the premium Interactive List Menu!
         if ($message_text == "hello" || $message_text == "hi" || $message_text == "start") {
             if (($key = array_search($from_number, $paused_numbers)) !== false) {
@@ -84,6 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Log bot menu sent
             log_chat_message($from_number, $customer_name, 'bot', "Sent main interactive menu (View Menu)");
             
+            header('HTTP/1.1 200 OK');
+            exit;
+        }
+
+        // If the bot is currently paused for this number, ignore and do not auto-reply
+        if (in_array($from_number, $paused_numbers)) {
             header('HTTP/1.1 200 OK');
             exit;
         }

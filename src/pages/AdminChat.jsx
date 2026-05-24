@@ -89,10 +89,7 @@ function AdminChat() {
     return () => clearInterval(interval);
   }, [isAuthenticated]);
 
-  // Scroll to the bottom of the chat window whenever selected chat or message list changes
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chats, selectedChatPhone]);
+
 
   // Alert triggers for background tabs
   const checkForNewMessages = (newChatsList) => {
@@ -130,6 +127,12 @@ function AdminChat() {
 
   // Helper variables to track active chat details
   const activeChat = chats.find(c => c.phone === selectedChatPhone);
+  const activeMessagesLength = activeChat?.messages?.length || 0;
+
+  // Scroll to the bottom ONLY when the selected chat changes OR the number of messages in the active chat changes!
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [selectedChatPhone, activeMessagesLength]);
   const filteredChats = chats.filter(chat => {
     const nameMatch = chat.name.toLowerCase().includes(searchQuery.toLowerCase());
     const phoneMatch = chat.phone.includes(searchQuery);

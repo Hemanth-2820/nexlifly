@@ -25,7 +25,7 @@
   color: var(--text-primary);
   font-family: 'Outfit', 'Inter', sans-serif;
   overflow: hidden;
-  padding-top: 80px; /* Offset for navbar */
+  padding-top: 0;
   box-sizing: border-box;
 }
 
@@ -650,14 +650,47 @@
 }
 
 /* --- Responsive Adaptability --- */
-@media (max-width: 900px) {
+@media (max-width: 1366px) {
   .chat-sidebar {
-    width: 280px;
+    width: 295px;
+  }
+  .chat-header {
+    padding: 14px 20px;
   }
   .messages-container {
     padding: 16px 20px;
+    gap: 12px;
   }
   .chat-input-area {
-    padding: 16px 20px;
+    padding: 14px 20px 18px;
   }
+  .message-bubble {
+    padding: 10px 15px;
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .chat-sidebar {
+    width: 250px;
+  }
+  .messages-container {
+    padding: 12px 15px;
+  }
+  .chat-input-area {
+    padding: 10px 15px 15px;
+  }
+}
+
+/* --- HubSpot Chat Widget Blocking (Hides it on Admin Screen) --- */
+#hubspot-messages-iframe-container,
+.hs-messages-widget,
+#hubspot-conversations-iframe,
+iframe[src*="hubspot"],
+iframe[id*="hubspot"],
+.hs-conversations-widget {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

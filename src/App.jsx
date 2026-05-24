@@ -22,12 +22,16 @@ import ContactUs from './pages/ContactUs';
 import AdminChat from './pages/AdminChat';
 import Footer from './components/Footer';
 import WhatsAppFloat from './components/WhatsAppFloat';
+import { useLocation } from 'react-router-dom';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const isAdminRoute = location.pathname === '/admin-chat';
+
   return (
-    <BrowserRouter>
+    <>
       <Analytics />
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -49,8 +53,16 @@ function App() {
           <Route path="/admin-chat" element={<AdminChat />} />
         </Routes>
       </main>
-      <Footer />
-      <WhatsAppFloat />
+      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <WhatsAppFloat />}
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

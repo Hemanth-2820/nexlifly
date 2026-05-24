@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   FiLock, FiMessageSquare, FiSearch, FiSend, 
-  FiPhone, FiClock, FiCheckCircle 
+  FiPhone, FiClock, FiCheckCircle, FiArrowLeft
 } from 'react-icons/fi';
 import './AdminChat.css';
 
@@ -294,7 +294,7 @@ function AdminChat() {
   // CORE LIVE CHAT DASHBOARD
   return (
     <div className="admin-chat-container">
-      <div className="chat-dashboard">
+      <div className={`chat-dashboard ${selectedChatPhone ? 'chat-selected' : 'no-chat-selected-mobile'}`}>
         
         {/* --- LEFT SIDEBAR (Chats List) --- */}
         <div className="chat-sidebar">
@@ -355,6 +355,9 @@ function AdminChat() {
               {/* Chat Window Header */}
               <div className="chat-header">
                 <div className="header-user-info">
+                  <button className="mobile-back-btn" onClick={() => setSelectedChatPhone(null)} title="Back to Inbox">
+                    <FiArrowLeft />
+                  </button>
                   <div className="header-details">
                     <h3>{activeChat.name}</h3>
                     <p>

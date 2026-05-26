@@ -63,11 +63,13 @@ function AdminChat() {
       Notification.requestPermission();
     }
     
-    // Hide HubSpot widget ONLY on the AdminChat page by adding a class to the body
+    // Hide HubSpot widget and lock body scroll ONLY on the AdminChat page
+    document.documentElement.classList.add('admin-chat-page');
     document.body.classList.add('admin-chat-page');
     
     return () => {
-      // Re-enable HubSpot widget globally when leaving the AdminChat page
+      // Re-enable HubSpot widget and page scroll globally when leaving the AdminChat page
+      document.documentElement.classList.remove('admin-chat-page');
       document.body.classList.remove('admin-chat-page');
     };
   }, []);

@@ -3,7 +3,10 @@
    ========================================================== */
 
 /* Prevent any parent body or browser scrollbars on the admin chat page */
-html, body, #root, main {
+html.admin-chat-page,
+body.admin-chat-page,
+body.admin-chat-page #root,
+body.admin-chat-page main {
   height: 100% !important;
   max-height: 100vh !important;
   overflow: hidden !important;
@@ -11,7 +14,7 @@ html, body, #root, main {
   padding: 0 !important;
 }
 
-:root {
+.admin-chat-container {
   --admin-bg: #0c0e17;
   --panel-bg: rgba(18, 22, 35, 0.65);
   --panel-border: rgba(255, 255, 255, 0.08);

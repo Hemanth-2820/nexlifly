@@ -110,7 +110,7 @@ function AdminChat() {
     }
 
     newChatsList.forEach((newChat) => {
-      const oldChat = prev.find(c => c.phone === newChat.phone);
+      const oldChat = prevChats.find(c => c.phone === newChat.phone);
       
       // If there's an increase in messages count
       if (oldChat && newChat.messages.length > oldChat.messages.length) {

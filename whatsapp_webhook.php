@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode($input, true);
 
     // Optional: Log the incoming messages to log.txt for debugging
-    file_put_contents('log.txt', print_r($data, true), FILE_APPEND);
+    file_put_contents(__DIR__ . '/log.txt', print_r($data, true), FILE_APPEND);
 
     // Process incoming message
     if (isset($data['entry'][0]['changes'][0]['value']['messages'][0])) {
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             // Send the Premium Interactive List Menu (View Menu button)
             $response = send_whatsapp_list_menu($from_number, $phone_number_id, $access_token);
-            file_put_contents('log.txt', "\n[SEND MENU RESPONSE] -> " . $response . "\n", FILE_APPEND);
+            file_put_contents(__DIR__ . '/log.txt', "\n[SEND MENU RESPONSE] -> " . $response . "\n", FILE_APPEND);
             
             // Log bot menu sent
             log_chat_message($from_number, $customer_name, 'bot', "Sent main interactive menu (View Menu)");
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Send the message back via Meta API
         if (!empty($reply_text)) {
             $response = send_whatsapp_message($from_number, $reply_text, $phone_number_id, $access_token);
-            file_put_contents('log.txt', "\n[SEND REPLY RESPONSE] -> " . $response . "\n", FILE_APPEND);
+            file_put_contents(__DIR__ . '/log.txt', "\n[SEND REPLY RESPONSE] -> " . $response . "\n", FILE_APPEND);
             
             // Log bot response
             log_chat_message($from_number, $customer_name, 'bot', $reply_text);
